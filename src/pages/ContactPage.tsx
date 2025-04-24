@@ -16,12 +16,9 @@ const ContactPage = () => {
             <p className="text-text mb-1">
               Email:
             </p>
-            <a href="mailto:contact@ds-asd-support.org" className="text-primary hover:underline break-all">
-              contact@ds-asd-support.org
+            <a href="mailto:johnny.hawk@gmail.com" className="text-primary hover:underline break-all">
+              johnny.hawk@gmail.com
             </a>
-            <p className="text-subtle-text text-sm italic mt-2">
-              (Placeholder email for demo)
-            </p>
           </div>
           
           {/* Stay Connected Section */}
