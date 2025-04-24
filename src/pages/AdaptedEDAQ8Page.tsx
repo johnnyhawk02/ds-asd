@@ -3,105 +3,112 @@ import React from 'react'
 const AdaptedEDAQ8Page: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold text-center mb-8">
-        Improved EDA-Q8 Adapted for Non-Verbal Children with Down Syndrome
+      <h1 className="text-3xl md:text-4xl font-bold text-text mb-8 text-center">
+        Proposed EDA-Q8 Adaptation (Non-Verbal Children with Down Syndrome)
       </h1>
       
-      <div className="bg-white border-2 border-primary p-6 rounded-lg mb-8 text-center shadow-md">
-        <p className="font-bold text-xl text-text mb-2">
-          DISCLAIMER
-        </p>
-        <p className="font-medium text-text">
-          This is a proposed adaptation of the EDA-Q8 assessment tool and has not been officially implemented or validated.
-        </p>
-      </div>
-      
-      <div className="mb-8">
-        <p className="mb-3">
-          The Extreme Demand Avoidance Questionnaire (EDA-Q8) is a valuable tool for identifying demand avoidance behaviors in children. 
-          However, the standard version relies on verbal expressions and behaviors that may not apply to non-verbal children with Down Syndrome.
-        </p>
-        
-        <p className="mb-3">
-          This proposed adaptation maintains the core assessment areas while modifying the descriptions to focus on observable, non-verbal 
-          behaviors that are more relevant for children with Down Syndrome who have limited or no verbal communication.
-        </p>
-        
+      {/* Disclaimer Box */}
+      <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md mb-10 shadow-sm" role="alert">
+        <p className="font-bold mb-1">Disclaimer</p>
         <p>
-          By adapting the assessment in this way, caregivers and professionals may be better able to identify and understand 
-          demand avoidance patterns in non-verbal children, potentially leading to more appropriate support strategies.
+          This is a <strong className="font-semibold">proposed adaptation</strong> of the EDA-Q8 assessment tool and has <strong className="font-semibold">not</strong> been officially implemented or validated. It is intended for discussion and informational purposes only.
         </p>
       </div>
       
-      <div className="mb-10">
-        <table className="w-full border-collapse">
+      {/* Introduction Text */}
+      <div className="prose prose-lg lg:prose-xl text-text max-w-none space-y-6 mb-12">
+        <p>
+          The Extreme Demand Avoidance Questionnaire (EDA-Q8) is useful for identifying demand avoidance behaviors. However, the standard version relies on verbal expressions unsuitable for many non-verbal children with Down Syndrome.
+        </p>
+        <p>
+          This proposed adaptation modifies item descriptions to focus on <strong className="font-semibold">observable, non-verbal behaviors</strong> relevant for children with Down Syndrome who have limited or no verbal communication, while preserving the core assessment areas.
+        </p>
+        <p>
+          Adapting the assessment this way may help caregivers and professionals better identify demand avoidance patterns, potentially leading to more appropriate support strategies.
+        </p>
+      </div>
+      
+      {/* Comparison Table */}
+      <div className="mb-12 overflow-x-auto">
+        <h2 className="text-2xl font-semibold text-primary mb-4">Original vs. Proposed Adapted Items</h2>
+        <table className="w-full border-collapse text-sm md:text-base shadow-sm rounded-lg overflow-hidden">
           <thead>
-            <tr className="bg-background">
-              <th className="border border-gray-300 p-3 text-left">Original EDA-Q8 Item</th>
-              <th className="border border-gray-300 p-3 text-left">Adapted Version (Non-Verbal Focused)</th>
+            <tr className="bg-primary/10">
+              <th className="border border-gray-300 p-3 text-left text-text font-semibold">Original EDA-Q8 Item</th>
+              <th className="border border-gray-300 p-3 text-left text-text font-semibold">Proposed Adaptation (Non-Verbal Focus)</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td className="border border-gray-300 p-3">Obsessively resists and avoids ordinary demands and requests.</td>
-              <td className="border border-gray-300 p-3">Strongly resists everyday requests through non-verbal actions (e.g., flopping to the ground, turning away, covering face, or running off).</td>
-            </tr>
-            <tr className="bg-background bg-opacity-50">
-              <td className="border border-gray-300 p-3">Is driven by the need to be in charge.</td>
-              <td className="border border-gray-300 p-3">Insists on controlling routines or interactions (e.g., gets upset if others change their preferred order of activities or try to lead).</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-3">Tells other children how they should behave, but does not feel these rules apply to him/herself.</td>
-              <td className="border border-gray-300 p-3">Directs others' actions using gestures (e.g., pushing, pulling, or pointing) but resists being directed or corrected themselves.</td>
-            </tr>
-            <tr className="bg-background bg-opacity-50">
-              <td className="border border-gray-300 p-3">Has difficulty complying with demands unless they are carefully presented.</td>
-              <td className="border border-gray-300 p-3">Only follows requests if presented in a specific way (e.g., during play, as a choice, or when they initiate the task).</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-3">Seems unaware of the differences between him/herself and authority figures (e.g., parents, teachers, police).</td>
-              <td className="border border-gray-300 p-3">Treats adults like peers (e.g., pulls adults' hands, climbs on them, or expects them to follow their lead without delay).</td>
-            </tr>
-            <tr className="bg-background bg-opacity-50">
-              <td className="border border-gray-300 p-3">Mood changes very rapidly (e.g., switches from affectionate to angry in an instant).</td>
-              <td className="border border-gray-300 p-3">Shows sudden mood shifts (e.g., from calm to distressed or angry) when faced with requests or changes in routine.</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-3">Uses outrageous or shocking behaviour to get out of doing something.</td>
-              <td className="border border-gray-300 p-3">Uses dramatic behaviors to avoid tasks (e.g., screaming, falling to the floor, or throwing objects) when asked to do something.</td>
-            </tr>
-            <tr className="bg-background bg-opacity-50">
-              <td className="border border-gray-300 p-3">Has bouts of extreme emotional responses to small events (e.g., crying/giggling, becoming furious).</td>
-              <td className="border border-gray-300 p-3">Displays intense emotional reactions (e.g., loud crying, screaming, excessive giggling, or anger) to minor events or disruptions in routine.</td>
-            </tr>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {[ // Array of item pairs for easier mapping
+              {
+                original: "Obsessively resists and avoids ordinary demands and requests.",
+                adapted: "Strongly resists everyday requests through non-verbal actions (e.g., physically turning away, pushing items away, dropping to the floor, running off)."
+              },
+              {
+                original: "Is driven by the need to be in charge.",
+                adapted: "Insists on controlling routines or interactions; becomes distressed if others change their preferred order or try to lead (e.g., physically resisting, vocalizing distress)."
+              },
+              {
+                original: "Tells other children how they should behave, but does not feel these rules apply to him/herself.",
+                adapted: "Directs others' actions non-verbally (e.g., pushing, pulling, pointing) but resists being directed or corrected themselves (e.g., ignoring, moving away)."
+              },
+              {
+                original: "Has difficulty complying with demands unless they are carefully presented.",
+                adapted: "Only follows requests if presented indirectly or as a choice (e.g., cooperates during play, responds to gentle guidance but resists direct instruction)."
+              },
+              {
+                original: "Seems unaware of the differences between him/herself and authority figures (e.g., parents, teachers, police).",
+                adapted: "Treats adults like peers without typical deference (e.g., pulling adults' hands forcefully, climbing on them without invitation, expecting immediate compliance)."
+              },
+              {
+                original: "Mood changes very rapidly (e.g., switches from affectionate to angry in an instant).",
+                adapted: "Shows sudden, intense mood shifts (e.g., from calm to distressed or angry) when faced with perceived demands or changes in routine."
+              },
+              {
+                original: "Uses outrageous or shocking behaviour to get out of doing something.",
+                adapted: "Uses dramatic physical behaviors to avoid tasks (e.g., loud screaming/vocalizations, falling to the floor, throwing objects) when asked to do something."
+              },
+              {
+                original: "Has bouts of extreme emotional responses to small events (e.g., crying/giggling, becoming furious).",
+                adapted: "Displays intense emotional reactions (e.g., loud crying, distressed vocalizations, excessive giggling, physical outburst) to minor events or disruptions."
+              }
+            ].map((item, index) => (
+              <tr key={index} className={`${index % 2 !== 0 ? 'bg-background' : ''}`}>
+                <td className="border border-gray-300 p-3 align-top text-subtle-text">{item.original}</td>
+                <td className="border border-gray-300 p-3 align-top text-text">{item.adapted}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
 
-      <div className="bg-white border border-gray-300 p-6 rounded-lg mb-10 shadow-sm">
-        <h2 className="text-xl font-semibold mb-4 text-black">Notes for Use (Proposed)</h2>
-        <ul className="list-disc ml-6 space-y-2 text-black">
-          <li><strong>Purpose:</strong> This adapted questionnaire is designed for caregivers and professionals to assess behaviors in non-verbal children with Down Syndrome, focusing on observable, non-verbal expressions.</li>
-          <li><strong>Administration:</strong> Rate each item based on frequency and intensity of the behavior (e.g., Never, Sometimes, Often, Always).</li>
-          <li><strong>Context:</strong> Consider the child's typical environment (home, school, therapy) when evaluating behaviors.</li>
-          <li><strong>Follow-Up:</strong> Use responses to guide discussions with healthcare providers or educators to develop tailored support strategies.</li>
+      {/* Notes for Use Section */}
+      <div className="bg-white border border-gray-300 p-6 rounded-lg mb-12 shadow-sm">
+        <h2 className="text-xl font-semibold mb-4 text-primary">Notes for Use (Proposed)</h2>
+        <ul className="list-disc ml-5 space-y-2 text-subtle-text">
+          <li><strong className="font-semibold text-text">Purpose:</strong> Designed for caregivers/professionals to assess <strong className="font-semibold text-text">observable, non-verbal behaviors</strong> in children with Down Syndrome.</li>
+          <li><strong className="font-semibold text-text">Administration:</strong> Rate based on frequency/intensity (e.g., Never, Sometimes, Often, Always) within the child's typical context.</li>
+          <li><strong className="font-semibold text-text">Interpretation:</strong> Higher scores suggest potential demand avoidance patterns warranting further discussion.</li>
+          <li><strong className="font-semibold text-text">Follow-Up:</strong> Use insights to inform discussions with healthcare providers/educators for tailored support strategies. <strong className="font-semibold text-text">Not a diagnostic tool.</strong></li>
         </ul>
       </div>
 
-      <div className="mt-6">
-        <h2 className="text-xl font-semibold mb-3 text-primary">Benefits of the Proposed Adapted Questionnaire</h2>
-        <ul className="list-disc ml-6 space-y-2">
-          <li>Specifically designed for non-verbal children with Down Syndrome</li>
-          <li>Focuses on observable behaviors rather than verbal expressions</li>
-          <li>Provides concrete examples relevant to the target population</li>
-          <li>Helps identify patterns that may indicate underlying demand avoidance</li>
-          <li>Facilitates more accurate assessment for children who cannot verbally express themselves</li>
+       {/* Benefits Section */}
+      <div className="mb-12">
+        <h2 className="text-2xl font-semibold mb-3 text-primary">Benefits of This Proposed Adaptation</h2>
+        <ul className="list-disc ml-5 space-y-2 text-subtle-text">
+          <li>Specifically considers non-verbal communication styles</li>
+          <li>Focuses on observable behaviors</li>
+          <li>Provides concrete examples relevant to Down Syndrome context</li>
+          <li>Aids in identifying patterns possibly related to demand avoidance</li>
+          <li>May facilitate more tailored assessment for non-verbal children</li>
         </ul>
       </div>
       
-      <div className="mt-10 p-4 border-t border-gray-200">
-        <p className="text-gray-600 italic">
-          This proposal is intended for discussion purposes and would require proper review, validation, and approval by qualified professionals before implementation in clinical or educational settings.
+       {/* Final Note */}
+      <div className="mt-10 p-4 border-t border-gray-200 text-center">
+        <p className="text-subtle-text italic text-sm">
+          This proposal requires proper review, validation, and approval by qualified professionals before any clinical or educational implementation.
         </p>
       </div>
     </div>

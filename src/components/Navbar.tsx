@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,15 +32,23 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const linkClasses = "px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200";
+  const activeLinkClasses = "text-primary bg-primary/10";
+  const inactiveLinkClasses = "text-subtle-text hover:text-primary hover:bg-primary/5";
+
   return (
-    <nav className="bg-white shadow-sm fixed top-0 left-0 w-full z-30">
-      <div className="container mx-auto px-4">
+    <nav className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Mobile menu button - moved to left */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="menu-button inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-primary hover:bg-background focus:outline-none z-50 relative"
+              className="menu-button inline-flex items-center justify-center p-2 rounded-md text-primary hover:bg-primary/10 focus:outline-none z-50 relative"
               aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -70,99 +78,137 @@ const Navbar = () => {
             </button>
           </div>
           
-          {/* Logo - moved to center in mobile */}
-          <div className="flex items-center md:ml-0 ml-4">
-            <Link to="/" className="text-xl font-semibold text-primary">
+          {/* Logo - centered on mobile, left on desktop */}
+          <div className="flex-1 flex items-center justify-center md:items-stretch md:justify-start">
+            <Link to="/" className="text-xl font-bold text-primary flex-shrink-0">
               DS-ASD Support
             </Link>
           </div>
           
           {/* Desktop Menu */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-6">
-              <Link to="/" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+            <div className="ml-6 flex items-center space-x-4">
+              <NavLink 
+                to="/" 
+                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+              >
                 Home
-              </Link>
-              <Link to="/about" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              </NavLink>
+              <NavLink 
+                to="/about" 
+                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+              >
                 About
-              </Link>
-              <Link to="/understanding-pda" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              </NavLink>
+              <NavLink 
+                to="/understanding-pda" 
+                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+              >
                 Understanding PDA
-              </Link>
-              <Link to="/resources" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              </NavLink>
+              <NavLink 
+                to="/resources" 
+                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+              >
                 Resources
-              </Link>
-              <Link to="/adapted-edaq8" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              </NavLink>
+              <NavLink 
+                to="/adapted-edaq8" 
+                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+              >
                 Proposed EDA-Q8
-              </Link>
-              <Link to="/contact" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+              </NavLink>
+              <NavLink 
+                to="/contact" 
+                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+              >
                 Contact
-              </Link>
+              </NavLink>
             </div>
           </div>
           
-          {/* Empty div for flex layout balance in mobile */}
-          <div className="md:hidden w-10"></div>
+          {/* Spacer div for mobile layout (adjust if needed) */}
+          <div className="md:hidden w-10 flex-shrink-0"></div>
         </div>
       </div>
 
       {/* Overlay */}
       <div 
-        className={`fixed inset-0 bg-black bg-opacity-50 z-10 transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 md:hidden ${
           isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
-        onClick={() => setIsMenuOpen(false)}
+        onClick={closeMenu}
       />
 
       {/* Mobile menu - slide from left */}
       <div 
-        className={`mobile-menu fixed top-0 left-0 h-full w-64 bg-background shadow-lg transform transition-transform duration-300 ease-in-out z-40 md:hidden ${
+        className={`mobile-menu fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 md:hidden ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="px-4 pt-20 pb-3 space-y-1">
-          <Link 
+        {/* Add a close button inside mobile menu */}
+        <div className="flex justify-end p-4">
+            <button
+              onClick={closeMenu}
+              className="p-2 rounded-md text-subtle-text hover:text-primary hover:bg-primary/10"
+            >
+              <span className="sr-only">Close menu</span>
+               <svg
+                className="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+        </div>
+        <div className="px-4 pt-4 pb-3 space-y-1">
+           {/* Mobile Links using NavLink */}
+           <NavLink 
             to="/" 
-            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
-            onClick={() => setIsMenuOpen(false)}
+            className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+            onClick={closeMenu}
           >
             Home
-          </Link>
-          <Link 
+          </NavLink>
+          <NavLink 
             to="/about" 
-            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
-            onClick={() => setIsMenuOpen(false)}
+            className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+            onClick={closeMenu}
           >
             About
-          </Link>
-          <Link 
+          </NavLink>
+          <NavLink 
             to="/understanding-pda" 
-            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
-            onClick={() => setIsMenuOpen(false)}
+            className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+            onClick={closeMenu}
           >
             Understanding PDA
-          </Link>
-          <Link 
+          </NavLink>
+          <NavLink 
             to="/resources" 
-            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
-            onClick={() => setIsMenuOpen(false)}
+            className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+            onClick={closeMenu}
           >
             Resources
-          </Link>
-          <Link 
+          </NavLink>
+          <NavLink 
             to="/adapted-edaq8" 
-            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
-            onClick={() => setIsMenuOpen(false)}
+            className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+            onClick={closeMenu}
           >
             Proposed EDA-Q8
-          </Link>
-          <Link 
+          </NavLink>
+          <NavLink 
             to="/contact" 
-            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
-            onClick={() => setIsMenuOpen(false)}
+            className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+            onClick={closeMenu}
           >
             Contact
-          </Link>
+          </NavLink>
         </div>
       </div>
     </nav>

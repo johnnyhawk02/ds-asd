@@ -1,46 +1,56 @@
 const ContactPage = () => {
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Contact Us</h1>
+      <h1 className="text-3xl md:text-4xl font-bold text-text mb-8 text-center">Contact Us</h1>
       
-      <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
-        <p className="text-lg text-gray-600 mb-6">
-          We'd love to hear from you. Whether you have questions, suggestions, or would like to share your experiences, please feel free to reach out.
+      {/* Main Content Card */}
+      <div className="bg-white rounded-lg shadow p-6 md:p-8 mb-10 border border-gray-200">
+        <p className="text-lg text-subtle-text mb-8 text-center">
+          We'd love to hear from you! Whether you have questions, suggestions, or want to share your experiences, please feel free to reach out.
         </p>
         
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold text-primary mb-3">Get in Touch</h2>
-          <p className="text-gray-600 mb-2">
-            Email: <span className="text-primary">contact@ds-asd-support.org</span>
-          </p>
-          <p className="text-gray-500 text-sm italic">
-            (This is a placeholder email address for demonstration purposes)
-          </p>
-        </div>
-        
-        <div>
-          <h2 className="text-xl font-semibold text-primary mb-3">Stay Connected</h2>
-          <p className="text-gray-600 mb-4">
-            Follow us on social media for updates, resources, and community discussions.
-          </p>
-          <div className="flex space-x-4">
-            <div className="w-10 h-10 bg-background rounded-full flex items-center justify-center text-primary hover:bg-opacity-80 cursor-pointer transition-all">
-              FB
-            </div>
-            <div className="w-10 h-10 bg-background rounded-full flex items-center justify-center text-primary hover:bg-opacity-80 cursor-pointer transition-all">
-              TW
-            </div>
-            <div className="w-10 h-10 bg-background rounded-full flex items-center justify-center text-primary hover:bg-opacity-80 cursor-pointer transition-all">
-              IG
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Get in Touch Section */}
+          <div>
+            <h2 className="text-xl font-semibold text-primary mb-4">Get in Touch</h2>
+            <p className="text-text mb-1">
+              Email:
+            </p>
+            <a href="mailto:contact@ds-asd-support.org" className="text-primary hover:underline break-all">
+              contact@ds-asd-support.org
+            </a>
+            <p className="text-subtle-text text-sm italic mt-2">
+              (Placeholder email for demo)
+            </p>
+          </div>
+          
+          {/* Stay Connected Section */}
+          <div>
+            <h2 className="text-xl font-semibold text-primary mb-4">Stay Connected</h2>
+            <p className="text-subtle-text mb-4">
+              Follow us on social media (links coming soon!).
+            </p>
+             {/* Placeholder Social Icons */}
+            <div className="flex space-x-4">
+              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 cursor-not-allowed">
+                FB
+              </div>
+              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 cursor-not-allowed">
+                TW
+              </div>
+              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 cursor-not-allowed">
+                IG
+              </div>
             </div>
           </div>
         </div>
       </div>
       
-      <div className="bg-secondary text-white rounded-lg p-6">
+      {/* Contact Form Placeholder */}
+      <div className="bg-primary/10 text-primary border border-primary/20 rounded-lg p-6 text-center">
         <h2 className="text-xl font-semibold mb-3">Contact Form Coming Soon</h2>
-        <p>
-          We're working on implementing a contact form to make it easier for you to reach out. In the meantime, please use the email address provided above.
+        <p className="text-primary/80">
+          We're working on implementing a contact form. In the meantime, please use the email address provided above.
         </p>
       </div>
     </div>

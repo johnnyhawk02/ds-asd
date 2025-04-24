@@ -4,9 +4,11 @@
 @tailwind utilities;
 /* stylelint-enable */
 
-/* Custom variables */
+/* Custom variables (optional, as Tailwind config is primary) */
 :root {
-  --color-primary: #0a8b01;
-  --color-text: #db520d;
-  --color-background: #FFFFFF;
+  --color-primary: #4A90E2;
+  --color-text: #333333;
+  --color-background: #F8F9FA;
+  --color-subtle-text: #777777;
+  --color-white: #FFFFFF;
 }

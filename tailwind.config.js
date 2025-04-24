@@ -7,11 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#0a8b01',
-        'text': '#db520d',
-        'background': '#FFFFFF',
+        'primary': '#4A90E2',      // Calm Blue
+        'text': '#333333',         // Dark Gray
+        'subtle-text': '#777777',  // Medium Gray
+        'background': '#F8F9FA',  // Off-white
+        'white': '#FFFFFF',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'), // Add typography plugin for better prose styling
+  ],
 } 
