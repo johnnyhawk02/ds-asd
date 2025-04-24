@@ -44,8 +44,8 @@ const Navbar = () => {
     <nav className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Mobile menu button - moved to left */}
-          <div className="md:hidden">
+          {/* Mobile menu button - Hidden on xl and up */}
+          <div className="xl:hidden">
             <button
               onClick={toggleMenu}
               className="menu-button inline-flex items-center justify-center p-2 rounded-md text-primary hover:bg-primary/10 focus:outline-none z-50 relative"
@@ -78,17 +78,18 @@ const Navbar = () => {
             </button>
           </div>
           
-          {/* Logo - centered on mobile, left on desktop */}
-          <div className="flex-1 flex items-center justify-center md:items-stretch md:justify-start">
+          {/* Logo - centered below xl, left on xl and up */}
+          <div className="flex-1 flex items-center justify-center xl:items-stretch xl:justify-start">
             <Link to="/" className="text-xl font-bold text-primary flex-shrink-0">
               DS-ASD Support
             </Link>
           </div>
           
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
+          {/* Desktop Menu - Hidden below xl */}
+          <div className="hidden xl:block">
             <div className="ml-6 flex items-center space-x-4">
-              <NavLink 
+               {/* NavLinks using xl breakpoint */}
+               <NavLink 
                 to="/" 
                 className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
               >
@@ -127,27 +128,27 @@ const Navbar = () => {
             </div>
           </div>
           
-          {/* Spacer div for mobile layout (adjust if needed) */}
-          <div className="md:hidden w-10 flex-shrink-0"></div>
+          {/* Spacer div for mobile/tablet layout - Hidden on xl and up */}
+          <div className="xl:hidden w-10 flex-shrink-0"></div>
         </div>
       </div>
 
-      {/* Overlay */}
+      {/* Overlay - Hidden on xl and up */}
       <div 
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 xl:hidden ${
           isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
-        onClick={closeMenu}
+        onClick={closeMenu} 
       />
 
-      {/* Mobile menu - slide from left */}
+      {/* Mobile menu - Hidden on xl and up */}
       <div 
-        className={`mobile-menu fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 md:hidden ${
+        className={`mobile-menu fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 xl:hidden ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        {/* Add a close button inside mobile menu */}
-        <div className="flex justify-end p-4">
+         {/* ... mobile menu content (close button, links) remains the same ... */}
+         <div className="flex justify-end p-4">
             <button
               onClick={closeMenu}
               className="p-2 rounded-md text-subtle-text hover:text-primary hover:bg-primary/10"
