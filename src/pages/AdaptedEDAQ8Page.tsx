@@ -7,9 +7,12 @@ const AdaptedEDAQ8Page: React.FC = () => {
         Improved EDA-Q8 Adapted for Non-Verbal Children with Down Syndrome
       </h1>
       
-      <div className="bg-primary bg-opacity-10 border border-primary border-opacity-20 p-4 rounded-lg mb-8 text-center">
-        <p className="font-medium text-primary">
-          This is a <span className="font-bold">proposed adaptation</span> of the EDA-Q8 assessment tool and has not been officially implemented or validated.
+      <div className="bg-white border-2 border-primary p-6 rounded-lg mb-8 text-center shadow-md">
+        <p className="font-bold text-xl text-text mb-2">
+          DISCLAIMER
+        </p>
+        <p className="font-medium text-text">
+          This is a proposed adaptation of the EDA-Q8 assessment tool and has not been officially implemented or validated.
         </p>
       </div>
       
@@ -75,9 +78,9 @@ const AdaptedEDAQ8Page: React.FC = () => {
         </table>
       </div>
 
-      <div className="bg-secondary text-white p-6 rounded-lg mb-10">
-        <h2 className="text-xl font-semibold mb-4">Notes for Use (Proposed)</h2>
-        <ul className="list-disc ml-6 space-y-2">
+      <div className="bg-white border border-gray-300 p-6 rounded-lg mb-10 shadow-sm">
+        <h2 className="text-xl font-semibold mb-4 text-black">Notes for Use (Proposed)</h2>
+        <ul className="list-disc ml-6 space-y-2 text-black">
           <li><strong>Purpose:</strong> This adapted questionnaire is designed for caregivers and professionals to assess behaviors in non-verbal children with Down Syndrome, focusing on observable, non-verbal expressions.</li>
           <li><strong>Administration:</strong> Rate each item based on frequency and intensity of the behavior (e.g., Never, Sometimes, Often, Always).</li>
           <li><strong>Context:</strong> Consider the child's typical environment (home, school, therapy) when evaluating behaviors.</li>
