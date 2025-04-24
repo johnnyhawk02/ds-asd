@@ -1,3 +1,11 @@
+/* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom variables */
+:root {
+  --color-primary: #B85042;
+  --color-secondary: #A7BEAE;
+  --color-background: #E7E8D1;
+}

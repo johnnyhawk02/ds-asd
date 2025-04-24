@@ -33,14 +33,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-30">
+    <nav className="bg-white shadow-sm fixed top-0 left-0 w-full z-30">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Mobile menu button - moved to left */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none z-50 relative"
+              className="menu-button inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-primary hover:bg-background focus:outline-none z-50 relative"
               aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -72,7 +72,7 @@ const Navbar = () => {
           
           {/* Logo - moved to center in mobile */}
           <div className="flex items-center md:ml-0 ml-4">
-            <Link to="/" className="text-xl font-semibold text-gray-800">
+            <Link to="/" className="text-xl font-semibold text-primary">
               DS-ASD Support
             </Link>
           </div>
@@ -80,22 +80,22 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-6">
-              <Link to="/" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <Link to="/" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
                 Home
               </Link>
-              <Link to="/about" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <Link to="/about" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
                 About
               </Link>
-              <Link to="/understanding-pda" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <Link to="/understanding-pda" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
                 Understanding PDA
               </Link>
-              <Link to="/resources" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <Link to="/resources" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
                 Resources
               </Link>
-              <Link to="/adapted-edaq8" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <Link to="/adapted-edaq8" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
                 Proposed EDA-Q8
               </Link>
-              <Link to="/contact" className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <Link to="/contact" className="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
                 Contact
               </Link>
             </div>
@@ -116,49 +116,49 @@ const Navbar = () => {
 
       {/* Mobile menu - slide from left */}
       <div 
-        className={`mobile-menu fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-40 md:hidden ${
+        className={`mobile-menu fixed top-0 left-0 h-full w-64 bg-background shadow-lg transform transition-transform duration-300 ease-in-out z-40 md:hidden ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="px-4 pt-20 pb-3 space-y-1">
           <Link 
             to="/" 
-            className="block text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
             onClick={() => setIsMenuOpen(false)}
           >
             Home
           </Link>
           <Link 
             to="/about" 
-            className="block text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
             onClick={() => setIsMenuOpen(false)}
           >
             About
           </Link>
           <Link 
             to="/understanding-pda" 
-            className="block text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
             onClick={() => setIsMenuOpen(false)}
           >
             Understanding PDA
           </Link>
           <Link 
             to="/resources" 
-            className="block text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
             onClick={() => setIsMenuOpen(false)}
           >
             Resources
           </Link>
           <Link 
             to="/adapted-edaq8" 
-            className="block text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
             onClick={() => setIsMenuOpen(false)}
           >
             Proposed EDA-Q8
           </Link>
           <Link 
             to="/contact" 
-            className="block text-gray-600 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium"
+            className="block text-primary hover:bg-white px-3 py-2 rounded-md text-base font-medium"
             onClick={() => setIsMenuOpen(false)}
           >
             Contact

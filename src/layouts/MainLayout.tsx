@@ -8,7 +8,7 @@ const MainLayout = () => {
       <header>
         <Navbar />
       </header>
-      <main className="flex-grow container mx-auto px-4 py-8">
+      <main className="flex-grow container mx-auto px-4 py-8 pt-24">
         <Outlet />
       </main>
       <Footer />
