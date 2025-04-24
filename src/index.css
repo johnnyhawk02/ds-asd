@@ -1,7 +1,8 @@
-/* Tailwind CSS directives */
+/* stylelint-disable */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-enable */
 
 /* Custom variables */
 :root {
