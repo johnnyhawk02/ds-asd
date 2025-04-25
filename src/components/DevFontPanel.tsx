@@ -42,16 +42,12 @@ const DevFontPanel: React.FC = () => {
   // Font Family - Default to 'Source Code Pro' if needed, or empty
   const [selectedFont, setSelectedFont] = useState<string>('Source Code Pro');
   const [appliedFont, setAppliedFont] = useState<string>('Source Code Pro'); // Assume default is applied initially
-  const [originalFontFamily, setOriginalFontFamily] = useState<string>('');
   // Color - Default to logo-orange
   const [selectedColor, setSelectedColor] = useState<string>('#FF4D00'); // Default to logo-orange
   const [appliedColor, setAppliedColor] = useState<string>('#FF4D00'); // Assume default is applied
-  const [originalTextColor, setOriginalTextColor] = useState<string>(''); 
-  const [originalLogoBgColor, setOriginalLogoBgColor] = useState<string>('');
   // Font Size - Default to 32px
   const [selectedFontSize, setSelectedFontSize] = useState<number>(32);
   const [appliedFontSize, setAppliedFontSize] = useState<number | null>(32); // Assume default is applied
-  const [originalFontSize, setOriginalFontSize] = useState<string>('');
   // Error
   const [error, setError] = useState<string>('');
 
@@ -64,54 +60,28 @@ const DevFontPanel: React.FC = () => {
     textElementRef.current = document.getElementById('navbar-site-name');
     logoElementRef.current = document.getElementById('navbar-logo-mask');
     
-    // Store originals if needed for hard reset, but resets will now go to new defaults
-    if (textElementRef.current) {
-      const computedStyle = window.getComputedStyle(textElementRef.current);
-      setOriginalFontFamily(computedStyle.fontFamily); // Store computed original
-      setOriginalTextColor(computedStyle.color);
-      setOriginalFontSize(computedStyle.fontSize);
-    }
-     if (logoElementRef.current) {
-       const computedStyle = window.getComputedStyle(logoElementRef.current);
-       setOriginalLogoBgColor(computedStyle.backgroundColor);
+    // Ensure initial state matches new defaults
+    setSelectedFont('Source Code Pro');
+    setSelectedColor('#FF4D00');
+    setSelectedFontSize(32);
+    setAppliedFont('Source Code Pro');
+    setAppliedColor('#FF4D00');
+    setAppliedFontSize(32);
+
+    // Ensure the default font is loaded initially if DevPanel is mounted
+    // This prevents a flash if the user hasn't selected it yet
+     const defaultFontUrl = `https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap`;
+     if (!document.querySelector(`link[href="${defaultFontUrl}"]`)) {
+         const defaultLink = document.createElement('link');
+         defaultLink.id = 'google-font-dev-link'; // Allow it to be removed by reset
+         defaultLink.rel = 'stylesheet';
+         defaultLink.href = defaultFontUrl;
+         document.head.appendChild(defaultLink);
+         console.log('Pre-loaded default font: Source Code Pro');
      }
-
-     // Ensure initial state matches new defaults
-     setSelectedFont('Source Code Pro');
-     setSelectedColor('#FF4D00');
-     setSelectedFontSize(32);
-     setAppliedFont('Source Code Pro');
-     setAppliedColor('#FF4D00');
-     setAppliedFontSize(32);
-
-     // Ensure the default font is loaded initially if DevPanel is mounted
-     // This prevents a flash if the user hasn't selected it yet
-      const defaultFontUrl = `https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap`;
-      if (!document.querySelector(`link[href="${defaultFontUrl}"]`)) {
-          const defaultLink = document.createElement('link');
-          defaultLink.id = 'google-font-dev-link'; // Allow it to be removed by reset
-          defaultLink.rel = 'stylesheet';
-          defaultLink.href = defaultFontUrl;
-          document.head.appendChild(defaultLink);
-          console.log('Pre-loaded default font: Source Code Pro');
-      }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Run only once on mount
-
-  // --- Helper --- 
-  const rgbToHex = (rgb: string): string | null => {
-    if (!rgb || !rgb.startsWith('rgb')) {
-        if (/^#[0-9A-F]{6}$/i.test(rgb)) return rgb.toUpperCase();
-        return null; 
-    }
-    const result = /^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/.exec(rgb);
-    if (!result) return null;
-    const r = parseInt(result[1], 10);
-    const g = parseInt(result[2], 10);
-    const b = parseInt(result[3], 10);
-    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
-  };
 
   // --- Auto-Apply Effects --- 
   // Font Family
