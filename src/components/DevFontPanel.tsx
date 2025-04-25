@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { ArrowUturnLeftIcon } from '@heroicons/react/24/outline';
 
 // List of Google Fonts
 const googleFonts = [
@@ -257,19 +258,21 @@ const DevFontPanel: React.FC = () => {
               <option value="">Select Font</option>
               {googleFonts.sort().map(font => (<option key={font} value={font}>{font}</option>))}
             </select>
-            {/* Update disabled logic for reset */}
-            <button onClick={handleResetFont} disabled={selectedFont === 'Source Code Pro'} title="Reset font to default" className={`bg-gray-200 text-subtle-text p-1.5 rounded text-sm transition-colors ${selectedFont === 'Source Code Pro' ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-300'}`}><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h5M4 9a9 9 0 0114.65 5.31M20 20v-5h-5M20 15a9 9 0 00-14.65-5.31" /></svg></button>
+            <button onClick={handleResetFont} disabled={selectedFont === 'Source Code Pro'} title="Reset font to default" className={`bg-gray-200 text-subtle-text p-1.5 rounded text-sm transition-colors ${selectedFont === 'Source Code Pro' ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-300'}`}>
+              <ArrowUturnLeftIcon className="h-4 w-4" />
+            </button>
           </div>
        </div>
 
        {/* Color Section */}
         <div>
-          <label htmlFor="color-picker" className="block text-sm font-semibold text-text mb-1">Logo & Site Name Color</label>
-           <div className="flex items-center gap-2">
+          <label htmlFor="color-picker" className="block text-sm font-semibold text-text mb-1">Primary Color</label>
+          <div className="flex items-center gap-2">
             <input id="color-picker" type="color" value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)} className="border border-gray-300 rounded h-7 w-10 cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary p-0.5" title="Select color"/>
-            <span className="text-sm text-subtle-text flex-1">{selectedColor}</span> 
-            {/* Update disabled logic for reset */}
-            <button onClick={handleResetColor} disabled={selectedColor.toUpperCase() === '#03BAAE'} title="Reset color to default" className={`bg-gray-200 text-subtle-text p-1.5 rounded text-sm transition-colors ${selectedColor.toUpperCase() === '#03BAAE' ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-300'}`}><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h5M4 9a9 9 0 0114.65 5.31M20 20v-5h-5M20 15a9 9 0 00-14.65-5.31" /></svg></button>
+            <span className="text-sm text-subtle-text flex-1">{selectedColor}</span>
+            <button onClick={handleResetColor} disabled={selectedColor.toUpperCase() === '#03BAAE'} title="Reset color to default" className={`bg-gray-200 text-subtle-text p-1.5 rounded text-sm transition-colors ${selectedColor.toUpperCase() === '#03BAAE' ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-300'}`}>
+              <ArrowUturnLeftIcon className="h-4 w-4" />
+            </button>
           </div>
        </div>
        
@@ -278,8 +281,9 @@ const DevFontPanel: React.FC = () => {
          <label htmlFor="font-size-slider" className="block text-sm font-semibold text-text mb-1">Site Name Font Size ({selectedFontSize}px)</label>
          <div className="flex items-center gap-2">
             <input id="font-size-slider" type="range" min="16" max="32" step="1" value={selectedFontSize} onChange={(e) => setSelectedFontSize(parseInt(e.target.value, 10))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary" title="Adjust font size"/>
-             {/* Update disabled logic for reset */}
-             <button onClick={handleResetSize} disabled={selectedFontSize === 28} title="Reset font size to default" className={`bg-gray-200 text-subtle-text p-1.5 rounded text-sm transition-colors ${ selectedFontSize === 28 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-300'}`}><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h5M4 9a9 9 0 0114.65 5.31M20 20v-5h-5M20 15a9 9 0 00-14.65-5.31" /></svg></button>
+            <button onClick={handleResetSize} disabled={selectedFontSize === 28} title="Reset font size to default" className={`bg-gray-200 text-subtle-text p-1.5 rounded text-sm transition-colors ${selectedFontSize === 28 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-300'}`}>
+              <ArrowUturnLeftIcon className="h-4 w-4" />
+            </button>
          </div>
        </div>
 

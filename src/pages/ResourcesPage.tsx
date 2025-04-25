@@ -1,9 +1,27 @@
 import { Link } from 'react-router-dom';
+// Import icons
+import { 
+  BookOpenIcon, 
+  BuildingLibraryIcon, 
+  AcademicCapIcon,
+  BeakerIcon, 
+  TableCellsIcon, // Using TableCells for Visual Supports
+  DocumentTextIcon,
+  ChatBubbleLeftRightIcon
+} from '@heroicons/react/24/outline';
 
 // Define the ResourceCard component
-const ResourceCard = ({ title, description, linkTo }: { title: string, description: string, linkTo?: string }) => (
+const ResourceCard = ({ title, description, linkTo, Icon }: { 
+  title: string, 
+  description: string, 
+  linkTo?: string,
+  Icon: React.ComponentType<React.ComponentProps<'svg'>> // Type for Heroicon component
+}) => (
   <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-300 flex flex-col">
-    <h2 className="text-xl font-semibold text-primary mb-3">{title}</h2>
+    <h2 className="text-xl font-semibold text-primary mb-3 flex items-center">
+      <Icon className="h-5 w-5 mr-2 flex-shrink-0" /> 
+      {title}
+    </h2>
     <p className="text-subtle-text mb-4 flex-grow">
       {description}
     </p>
@@ -35,31 +53,37 @@ const ResourcesPage = () => {
       
       {/* Resource Cards */}
       <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-        {/* Update Books card to use linkTo prop */}
+        {/* Pass the corresponding Icon component to each card */}
         <ResourceCard 
           title="Books & Publications"
           description="Recommended reading materials, research papers, and publications focused on DS-ASD and PDA."
           linkTo="/books"
+          Icon={BookOpenIcon}
         />
         <ResourceCard 
           title="Organizations & Support Groups"
           description="Connect with organizations, foundations, and support groups specialized in DS-ASD and PDA support."
+          Icon={BuildingLibraryIcon}
         />
         <ResourceCard 
           title="Educational Resources"
           description="Materials for educators, homeschooling parents, and anyone supporting the educational needs of individuals with DS-ASD and PDA."
+          Icon={AcademicCapIcon}
         />
         <ResourceCard 
           title="Therapeutic Approaches"
           description="Information about therapeutic interventions, strategies, and approaches that may benefit individuals with DS-ASD and PDA."
+          Icon={BeakerIcon}
         />
         <ResourceCard 
           title="Visual Supports & Tools"
           description="Downloadable visual schedules, social stories, communication tools, and other practical resources."
+          Icon={TableCellsIcon}
         />
         <ResourceCard 
           title="Research & Articles"
           description="Latest research findings, articles, and academic resources related to DS-ASD and PDA."
+          Icon={DocumentTextIcon}
         />
       </div>
       
@@ -74,8 +98,9 @@ const ResourcesPage = () => {
         </p>
         <a 
           href="/contact" 
-          className="inline-block px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-50 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
+          className="inline-flex items-center px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-50 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
         >
+          <ChatBubbleLeftRightIcon className="h-5 w-5 mr-2" />
           Contact Us
         </a>
       </div>

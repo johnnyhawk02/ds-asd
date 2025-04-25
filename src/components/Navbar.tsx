@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import brainLogoUrl from '../assets/brain.png'; // Rename import slightly for clarity
+import logoUrl from '../assets/logo002.png'; // Changed to use logo002.png
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,8 +53,8 @@ const Navbar = () => {
                 id="navbar-logo-mask" // ID for targeting background color
                 className="block h-10 w-10 bg-primary transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]" // Changed bg-logo-orange to bg-primary
                 style={{
-                  maskImage: `url(${brainLogoUrl})`,
-                  WebkitMaskImage: `url(${brainLogoUrl})`, // For Safari/older browsers
+                  maskImage: `url(${logoUrl})`,
+                  WebkitMaskImage: `url(${logoUrl})`, // For Safari/older browsers
                   maskSize: 'contain',
                   WebkitMaskSize: 'contain',
                   maskRepeat: 'no-repeat',

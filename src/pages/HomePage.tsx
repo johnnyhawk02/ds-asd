@@ -3,7 +3,17 @@ import ds001Image from '../assets/ds001.jpg';
 import ds002Image from '../assets/ds002.jpg';
 import ds003Image from '../assets/ds003.jpg';
 import ds004Image from '../assets/ds004.jpg';
-import brainLogoUrl from '../assets/brain.png';
+import logoUrl from '../assets/logo002.png';
+import { 
+  ArrowRightIcon, 
+  BookOpenIcon, 
+  ChatBubbleLeftRightIcon, 
+  InformationCircleIcon, 
+  AcademicCapIcon,
+  PuzzlePieceIcon,
+  UsersIcon,
+  WrenchScrewdriverIcon
+} from '@heroicons/react/24/outline';
 
 const HomePage = () => {
   return (
@@ -13,8 +23,8 @@ const HomePage = () => {
         <span
           className="block h-16 w-16 bg-primary mx-auto mb-6"
           style={{
-            maskImage: `url(${brainLogoUrl})`,
-            WebkitMaskImage: `url(${brainLogoUrl})`,
+            maskImage: `url(${logoUrl})`,
+            WebkitMaskImage: `url(${logoUrl})`,
             maskSize: 'contain',
             WebkitMaskSize: 'contain',
             maskRepeat: 'no-repeat',
@@ -35,14 +45,16 @@ const HomePage = () => {
         <div className="flex flex-wrap justify-center gap-4 md:gap-5">
           <Link 
             to="/about" 
-            className="px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
+            className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
           >
             Learn More
+            <ArrowRightIcon className="ml-2 h-5 w-5" />
           </Link>
           <Link 
             to="/resources" 
-            className="px-6 py-3 bg-white text-primary font-medium rounded-lg border border-primary hover:bg-primary/5 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
+            className="inline-flex items-center px-6 py-3 bg-white text-primary font-medium rounded-lg border border-primary hover:bg-primary/5 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
           >
+            <BookOpenIcon className="mr-2 h-5 w-5" />
             View Resources
           </Link>
         </div>
@@ -64,7 +76,10 @@ const HomePage = () => {
                 className="w-full h-48 object-cover object-top"
               />
               <div className="p-6 flex-grow flex flex-col justify-between">
-                <h3 className="text-xl font-semibold text-text mb-3 text-center">Understanding DS-ASD</h3>
+                <h3 className="text-xl font-semibold text-text mb-3 text-center flex items-center justify-center">
+                   <InformationCircleIcon className="h-5 w-5 mr-2 text-primary"/> 
+                   Understanding DS-ASD
+                </h3>
                 <p className="text-subtle-text leading-relaxed text-center">
                   Exploring the unique intersection.
                 </p>
@@ -81,7 +96,10 @@ const HomePage = () => {
                 className="w-full h-48 object-cover object-top"
               />
               <div className="p-6 flex-grow flex flex-col justify-between">
-                <h3 className="text-xl font-semibold text-text mb-3 text-center">Understanding PDA</h3>
+                <h3 className="text-xl font-semibold text-text mb-3 text-center flex items-center justify-center">
+                   <PuzzlePieceIcon className="h-5 w-5 mr-2 text-primary"/> 
+                   Understanding PDA
+                </h3>
                 <p className="text-subtle-text leading-relaxed text-center">
                   Strategies and insights.
                 </p>
@@ -98,7 +116,10 @@ const HomePage = () => {
                 className="w-full h-48 object-cover object-top"
               />
               <div className="p-6 flex-grow flex flex-col justify-between">
-                <h3 className="text-xl font-semibold text-text mb-3 text-center">Adapted Resources</h3>
+                <h3 className="text-xl font-semibold text-text mb-3 text-center flex items-center justify-center">
+                   <WrenchScrewdriverIcon className="h-5 w-5 mr-2 text-primary"/> 
+                   Adapted Resources
+                </h3>
                 <p className="text-subtle-text leading-relaxed text-center">
                   Tools tailored for unique needs.
                 </p>
@@ -115,7 +136,10 @@ const HomePage = () => {
                 className="w-full h-48 object-cover object-top"
               />
               <div className="p-6 flex-grow flex flex-col justify-between">
-                <h3 className="text-xl font-semibold text-text mb-3 text-center">Community & Support</h3>
+                <h3 className="text-xl font-semibold text-text mb-3 text-center flex items-center justify-center">
+                   <UsersIcon className="h-5 w-5 mr-2 text-primary"/> 
+                   Community & Support
+                </h3>
                 <p className="text-subtle-text leading-relaxed text-center">
                   Visualizing the journey together.
                 </p>
@@ -134,8 +158,9 @@ const HomePage = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-block px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-50 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
+            className="inline-flex items-center px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-50 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
           >
+            <ChatBubbleLeftRightIcon className="mr-2 h-5 w-5" />
             Get in Touch
           </Link>
         </div>

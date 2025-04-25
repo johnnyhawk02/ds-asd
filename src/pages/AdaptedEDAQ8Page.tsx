@@ -1,4 +1,13 @@
 import React from 'react'
+// Import icons
+import { 
+  ExclamationTriangleIcon as SolidExclamationTriangleIcon 
+} from '@heroicons/react/24/solid';
+import { 
+  TableCellsIcon,
+  ClipboardDocumentListIcon,
+  SparklesIcon
+} from '@heroicons/react/24/outline';
 
 const AdaptedEDAQ8Page: React.FC = () => {
   return (
@@ -8,11 +17,14 @@ const AdaptedEDAQ8Page: React.FC = () => {
       </h1>
       
       {/* Disclaimer Box */}
-      <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md mb-12 shadow-sm" role="alert">
-        <p className="font-bold mb-1">Disclaimer</p>
-        <p>
-          This is a <strong className="font-semibold">proposed adaptation</strong> of the EDA-Q8 assessment tool and has <strong className="font-semibold">not</strong> been officially implemented or validated. It is intended for discussion and informational purposes only.
-        </p>
+      <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md mb-12 shadow-sm flex items-start" role="alert">
+        <SolidExclamationTriangleIcon className="h-5 w-5 mr-3 mt-0.5 flex-shrink-0" />
+        <div>
+          <p className="font-bold mb-1">Disclaimer</p>
+          <p>
+            This is a <strong className="font-semibold">proposed adaptation</strong> of the EDA-Q8 assessment tool and has <strong className="font-semibold">not</strong> been officially implemented or validated. It is intended for discussion and informational purposes only.
+          </p>
+        </div>
       </div>
       
       {/* Introduction Text */}
@@ -30,7 +42,10 @@ const AdaptedEDAQ8Page: React.FC = () => {
       
       {/* Comparison Table */}
       <div className="mb-12 overflow-x-auto">
-        <h2 className="text-2xl font-semibold text-primary mb-4">Original vs. Proposed Adapted Items</h2>
+        <h2 className="text-2xl font-semibold text-primary mb-4 flex items-center">
+          <TableCellsIcon className="h-6 w-6 mr-2"/>
+          Original vs. Proposed Adapted Items
+        </h2>
         <table className="w-full border-collapse text-sm md:text-base shadow-sm rounded-lg overflow-hidden">
           <thead>
             <tr className="bg-primary/10">
@@ -84,7 +99,10 @@ const AdaptedEDAQ8Page: React.FC = () => {
 
       {/* Notes for Use Section */}
       <div className="bg-white border border-gray-300 p-6 rounded-lg mb-12 shadow-sm">
-        <h2 className="text-xl font-semibold mb-4 text-primary">Notes for Use (Proposed)</h2>
+        <h2 className="text-xl font-semibold mb-4 text-primary flex items-center">
+           <ClipboardDocumentListIcon className="h-5 w-5 mr-2"/>
+           Notes for Use (Proposed)
+        </h2>
         <ul className="list-disc ml-5 space-y-2 text-subtle-text">
           <li><strong className="font-semibold text-text">Purpose:</strong> Designed for caregivers/professionals to assess <strong className="font-semibold text-text">observable, non-verbal behaviors</strong> in children with Down Syndrome.</li>
           <li><strong className="font-semibold text-text">Administration:</strong> Rate based on frequency/intensity (e.g., Never, Sometimes, Often, Always) within the child's typical context.</li>
@@ -95,7 +113,10 @@ const AdaptedEDAQ8Page: React.FC = () => {
 
        {/* Benefits Section */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold mb-3 text-primary">Benefits of This Proposed Adaptation</h2>
+        <h2 className="text-2xl font-semibold mb-3 text-primary flex items-center">
+          <SparklesIcon className="h-6 w-6 mr-2"/>
+          Benefits of This Proposed Adaptation
+        </h2>
         <ul className="list-disc ml-5 space-y-2 text-subtle-text">
           <li>Specifically considers non-verbal communication styles</li>
           <li>Focuses on observable behaviors</li>

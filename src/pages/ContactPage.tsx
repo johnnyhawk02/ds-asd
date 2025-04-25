@@ -1,3 +1,5 @@
+import { EnvelopeIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline';
+
 const ContactPage = () => {
   return (
     <>
@@ -13,7 +15,8 @@ const ContactPage = () => {
           {/* Get in Touch Section */}
           <div>
             <h2 className="text-xl font-semibold text-primary mb-4">Get in Touch</h2>
-            <p className="text-text mb-1">
+            <p className="text-text mb-1 flex items-center">
+              <EnvelopeIcon className="h-5 w-5 mr-2 text-primary" /> 
               Email:
             </p>
             <a href="mailto:johnny.hawk@gmail.com" className="text-primary hover:underline break-all">
@@ -45,7 +48,10 @@ const ContactPage = () => {
       
       {/* Contact Form Placeholder */}
       <div className="bg-primary/10 text-primary border border-primary/20 rounded-lg p-6 text-center">
-        <h2 className="text-xl font-semibold mb-3">Contact Form Coming Soon</h2>
+        <h2 className="text-xl font-semibold mb-3 flex items-center justify-center">
+          <WrenchScrewdriverIcon className="h-5 w-5 mr-2"/>
+          Contact Form Coming Soon
+        </h2>
         <p className="text-primary/80">
           We're working on implementing a contact form. In the meantime, please use the email address provided above.
         </p>
