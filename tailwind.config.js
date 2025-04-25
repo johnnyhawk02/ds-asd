@@ -9,7 +9,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#4A90E2',      // Calm Blue
+        // Use CSS variable for primary, allowing opacity modifiers
+        'primary': 'hsl(var(--color-primary) / <alpha-value>)',
         'text': '#333333',         // Dark Gray
         'subtle-text': '#777777',  // Medium Gray
         'background': '#F8F9FA',  // Off-white

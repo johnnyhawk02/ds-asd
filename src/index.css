@@ -6,9 +6,16 @@
 
 /* Custom variables (optional, as Tailwind config is primary) */
 :root {
-  --color-primary: #4A90E2;
+  /* Primary color variable in HSL format */
+  --color-primary: 175 97% 37%; /* Approx HSL for #03baae */
   --color-text: #333333;
   --color-background: #F8F9FA;
   --color-subtle-text: #777777;
   --color-white: #FFFFFF;
+}
+
+/* Optional: Apply base background if not handled by Tailwind */
+body {
+  @apply bg-background text-text;
+  font-family: sans-serif; /* Ensure a base font is set */
 }

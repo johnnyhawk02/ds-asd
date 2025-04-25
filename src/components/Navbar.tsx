@@ -44,48 +44,14 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Mobile menu button - Hidden on xl and up */}
-          <div className="xl:hidden">
-            <button
-              onClick={toggleMenu}
-              className="menu-button inline-flex items-center justify-center p-2 rounded-md text-primary hover:bg-primary/10 focus:outline-none z-50 relative"
-              aria-expanded={isMenuOpen}
-            >
-              <span className="sr-only">Open main menu</span>
-              {/* Icon when menu is closed */}
-              <svg
-                className={`${isMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              
-              {/* Icon when menu is open */}
-              <svg
-                className={`${isMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-          
-          {/* Logo */}
-          <div className="flex-1 flex items-center justify-center xl:items-stretch xl:justify-start">
+        <div className="flex items-center h-16">
+          {/* Logo - Now always first */}
+          <div className="flex items-center">
             <Link to="/" className="flex items-center flex-shrink-0 group">
               {/* Logo using mask */}
               <span
                 id="navbar-logo-mask" // ID for targeting background color
-                className="block h-10 w-10 bg-logo-orange transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]" // Use bg-logo-orange initially, add transition and hover rotation
+                className="block h-10 w-10 bg-primary transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]" // Changed bg-logo-orange to bg-primary
                 style={{
                   maskImage: `url(${brainLogoUrl})`,
                   WebkitMaskImage: `url(${brainLogoUrl})`, // For Safari/older browsers
@@ -99,16 +65,16 @@ const Navbar = () => {
               ></span>
               <span 
                 id="navbar-site-name" 
-                className="ml-3 font-logo text-logo-orange text-[32px] font-bold transition-colors duration-200"
+                className="ml-3 font-logo text-primary text-[28px] font-bold transition-colors duration-200" // Changed text-logo-orange to text-primary, text-[32px] to text-[28px]
               >
                 dsasd.net
               </span>
             </Link>
           </div>
           
-          {/* Desktop Menu - Hidden below xl */}
-          <div className="hidden xl:block">
-            <div className="ml-6 flex items-center space-x-4">
+          {/* Desktop Menu - Add ml-auto */}
+          <div className="hidden xl:block ml-auto">
+            <div className="flex items-center space-x-4">
                {/* NavLinks using xl breakpoint */}
                <NavLink 
                 to="/" 
@@ -149,8 +115,39 @@ const Navbar = () => {
             </div>
           </div>
           
-          {/* Spacer div for mobile/tablet layout - Hidden on xl and up */}
-          <div className="xl:hidden w-10 flex-shrink-0"></div>
+          {/* Mobile menu button - Add ml-auto */}
+          <div className="xl:hidden ml-auto">
+            <button
+              onClick={toggleMenu}
+              className="menu-button inline-flex items-center justify-center p-2 rounded-md text-primary hover:bg-primary/10 focus:outline-none z-50 relative"
+              aria-expanded={isMenuOpen}
+            >
+              <span className="sr-only">Open main menu</span>
+              {/* Icon when menu is closed */}
+              <svg
+                className={`${isMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              
+              {/* Icon when menu is open */}
+              <svg
+                className={`${isMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -162,14 +159,14 @@ const Navbar = () => {
         onClick={closeMenu} 
       />
 
-      {/* Mobile menu - Hidden on xl and up */}
+      {/* Mobile menu - Adjust positioning and transform */}
       <div 
-        className={`mobile-menu fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 xl:hidden ${
-          isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        className={`mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 xl:hidden ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
          {/* ... mobile menu content (close button, links) remains the same ... */}
-         <div className="flex justify-end p-4">
+         <div className="flex justify-start p-4">
             <button
               onClick={closeMenu}
               className="p-2 rounded-md text-subtle-text hover:text-primary hover:bg-primary/10"
