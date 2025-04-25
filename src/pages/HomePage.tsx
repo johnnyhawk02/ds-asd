@@ -3,17 +3,34 @@ import ds001Image from '../assets/ds001.jpg';
 import ds002Image from '../assets/ds002.jpg';
 import ds003Image from '../assets/ds003.jpg';
 import ds004Image from '../assets/ds004.jpg';
+import brainLogoUrl from '../assets/brain.png';
 
 const HomePage = () => {
   return (
     <div className="space-y-16 md:space-y-24">
       {/* Hero Section */}
       <div className="text-center pt-8 md:pt-16">
+        <span
+          className="block h-16 w-16 bg-primary mx-auto mb-6"
+          style={{
+            maskImage: `url(${brainLogoUrl})`,
+            WebkitMaskImage: `url(${brainLogoUrl})`,
+            maskSize: 'contain',
+            WebkitMaskSize: 'contain',
+            maskRepeat: 'no-repeat',
+            WebkitMaskRepeat: 'no-repeat',
+            maskPosition: 'center',
+            WebkitMaskPosition: 'center'
+          }}
+        ></span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text mb-6 leading-tight">
           Supporting the <span className="text-primary">Down Syndrome</span> & <span className="text-primary">Autism</span> Journey
         </h1>
-        <p className="text-lg md:text-xl text-subtle-text max-w-3xl mx-auto mb-10 leading-relaxed">
+        <p className="text-lg md:text-xl text-subtle-text max-w-3xl mx-auto mb-4 leading-relaxed">
           A comprehensive resource for families and caregivers navigating the unique path of individuals with Down syndrome, Autism Spectrum Disorder, and Pathological Demand Avoidance.
+        </p>
+        <p className="text-xl md:text-2xl text-primary font-semibold max-w-3xl mx-auto mb-10 leading-relaxed">
+          Support you don't have to fight for
         </p>
         <div className="flex flex-wrap justify-center gap-4 md:gap-5">
           <Link 
