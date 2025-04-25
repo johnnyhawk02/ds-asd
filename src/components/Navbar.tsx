@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import brainLogo from '../assets/brain.png'; // Import the logo image
+import brainLogoUrl from '../assets/brain.png'; // Rename import slightly for clarity
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -82,12 +82,25 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-1 flex items-center justify-center xl:items-stretch xl:justify-start">
             <Link to="/" className="flex items-center flex-shrink-0 group">
-              <img 
-                className="h-10 w-auto" // Adjusted height
-                src={brainLogo} 
-                alt="DS-ASD Support Logo"
-              />
-              <span className="ml-3 text-xl font-bold text-primary group-hover:text-primary/80 transition-colors duration-200">
+              {/* Logo using mask */}
+              <span
+                id="navbar-logo-mask" // ID for targeting background color
+                className="block h-10 w-10 bg-logo-orange" // Use bg-logo-orange initially, needs explicit size
+                style={{
+                  maskImage: `url(${brainLogoUrl})`,
+                  WebkitMaskImage: `url(${brainLogoUrl})`, // For Safari/older browsers
+                  maskSize: 'contain',
+                  WebkitMaskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  WebkitMaskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                  WebkitMaskPosition: 'center'
+                }}
+              ></span>
+              <span 
+                id="navbar-site-name" 
+                className="ml-3 font-logo text-logo-orange text-[32px] font-bold transition-colors duration-200"
+              >
                 dsasd.net
               </span>
             </Link>
