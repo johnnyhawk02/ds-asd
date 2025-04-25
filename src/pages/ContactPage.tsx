@@ -1,10 +1,10 @@
 const ContactPage = () => {
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl md:text-4xl font-bold text-text mb-8 text-center">Contact Us</h1>
+    <>
+      <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">Contact Us</h1>
       
       {/* Main Content Card */}
-      <div className="bg-white rounded-lg shadow p-6 md:p-8 mb-10 border border-gray-200">
+      <div className="bg-white rounded-lg shadow p-6 md:p-8 mb-12 border border-gray-200">
         <p className="text-lg text-subtle-text mb-8 text-center">
           We'd love to hear from you! Whether you have questions, suggestions, or want to share your experiences, please feel free to reach out.
         </p>
@@ -50,7 +50,7 @@ const ContactPage = () => {
           We're working on implementing a contact form. In the meantime, please use the email address provided above.
         </p>
       </div>
-    </div>
+    </>
   );
 };
 

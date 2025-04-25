@@ -1,9 +1,9 @@
 const UnderstandingPDAPage = () => {
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl md:text-4xl font-bold text-text mb-8 text-center">Understanding PDA</h1>
+    <>
+      <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">Understanding PDA</h1>
       
-      <div className="bg-white rounded-lg shadow p-6 md:p-8 mb-10 border border-gray-200">
+      <div className="bg-white rounded-lg shadow p-6 md:p-8 mb-12 border border-gray-200">
         <p className="text-lg text-subtle-text text-center">
            Pathological Demand Avoidance (PDA) is considered by many to be a profile within the autism spectrum. It is characterized by an extreme avoidance of everyday demands and expectations, driven by high levels of anxiety.
         </p>
@@ -76,7 +76,7 @@ const UnderstandingPDAPage = () => {
           View Proposed EDA-Q8
         </a>
       </div>
-    </div>
+    </>
   );
 };
 

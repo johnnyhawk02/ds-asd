@@ -85,7 +85,7 @@ const Navbar = () => {
               {/* Logo using mask */}
               <span
                 id="navbar-logo-mask" // ID for targeting background color
-                className="block h-10 w-10 bg-logo-orange" // Use bg-logo-orange initially, needs explicit size
+                className="block h-10 w-10 bg-logo-orange transition-transform duration-500 ease-in-out group-hover:rotate-[360deg]" // Use bg-logo-orange initially, add transition and hover rotation
                 style={{
                   maskImage: `url(${brainLogoUrl})`,
                   WebkitMaskImage: `url(${brainLogoUrl})`, // For Safari/older browsers

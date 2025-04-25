@@ -11,11 +11,11 @@ const ResourceCard = ({ title, description }: { title: string, description: stri
 
 const ResourcesPage = () => {
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl md:text-4xl font-bold text-text mb-8 text-center">Resources</h1>
+    <>
+      <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">Resources</h1>
       
       {/* Intro Box */}
-      <div className="bg-white rounded-lg shadow p-6 md:p-8 mb-10 border border-gray-200">
+      <div className="bg-white rounded-lg shadow p-6 md:p-8 mb-12 border border-gray-200">
         <p className="text-lg text-subtle-text text-center">
            This page features a curated collection of resources for families supporting individuals with DS-ASD and PDA. We're actively compiling high-quality, evidence-based resources for you.
         </p>
@@ -66,7 +66,7 @@ const ResourcesPage = () => {
           Contact Us
         </a>
       </div>
-    </div>
+    </>
   );
 };
 

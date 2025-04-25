@@ -2,13 +2,13 @@ import React from 'react'
 
 const AdaptedEDAQ8Page: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4">
-      <h1 className="text-3xl md:text-4xl font-bold text-text mb-8 text-center">
+    <>
+      <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">
         Proposed EDA-Q8 Adaptation (Non-Verbal Children with Down Syndrome)
       </h1>
       
       {/* Disclaimer Box */}
-      <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md mb-10 shadow-sm" role="alert">
+      <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md mb-12 shadow-sm" role="alert">
         <p className="font-bold mb-1">Disclaimer</p>
         <p>
           This is a <strong className="font-semibold">proposed adaptation</strong> of the EDA-Q8 assessment tool and has <strong className="font-semibold">not</strong> been officially implemented or validated. It is intended for discussion and informational purposes only.
@@ -111,7 +111,7 @@ const AdaptedEDAQ8Page: React.FC = () => {
           This proposal requires proper review, validation, and approval by qualified professionals before any clinical or educational implementation.
         </p>
       </div>
-    </div>
+    </>
   )
 }
 
