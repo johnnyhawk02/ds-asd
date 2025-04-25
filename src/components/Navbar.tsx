@@ -81,14 +81,15 @@ const Navbar = () => {
           
           {/* Logo */}
           <div className="flex-1 flex items-center justify-center xl:items-stretch xl:justify-start">
-            <Link to="/" className="flex items-center flex-shrink-0">
+            <Link to="/" className="flex items-center flex-shrink-0 group">
               <img 
                 className="h-10 w-auto" // Adjusted height
                 src={brainLogo} 
                 alt="DS-ASD Support Logo"
               />
-               {/* Optional: Add site name next to logo on larger screens */}
-               {/* <span className="hidden sm:block ml-3 text-xl font-bold text-primary">DS-ASD Support</span> */}
+              <span className="ml-3 text-xl font-bold text-primary group-hover:text-primary/80 transition-colors duration-200">
+                dsasd.net
+              </span>
             </Link>
           </div>
           
