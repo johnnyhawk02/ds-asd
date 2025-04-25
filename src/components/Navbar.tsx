@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import brainLogo from '../assets/brain.png'; // Import the logo image
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,10 +79,16 @@ const Navbar = () => {
             </button>
           </div>
           
-          {/* Logo - centered below xl, left on xl and up */}
+          {/* Logo */}
           <div className="flex-1 flex items-center justify-center xl:items-stretch xl:justify-start">
-            <Link to="/" className="text-xl font-bold text-primary flex-shrink-0">
-              DS-ASD Support
+            <Link to="/" className="flex items-center flex-shrink-0">
+              <img 
+                className="h-10 w-auto" // Adjusted height
+                src={brainLogo} 
+                alt="DS-ASD Support Logo"
+              />
+               {/* Optional: Add site name next to logo on larger screens */}
+               {/* <span className="hidden sm:block ml-3 text-xl font-bold text-primary">DS-ASD Support</span> */}
             </Link>
           </div>
           
