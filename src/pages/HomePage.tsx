@@ -9,7 +9,6 @@ import {
   BookOpenIcon, 
   ChatBubbleLeftRightIcon, 
   InformationCircleIcon, 
-  AcademicCapIcon,
   PuzzlePieceIcon,
   UsersIcon,
   WrenchScrewdriverIcon
