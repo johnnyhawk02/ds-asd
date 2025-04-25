@@ -1,11 +1,23 @@
-// Define the ResourceCard component outside the main component's return statement
-const ResourceCard = ({ title, description }: { title: string, description: string }) => (
+import { Link } from 'react-router-dom';
+
+// Define the ResourceCard component
+const ResourceCard = ({ title, description, linkTo }: { title: string, description: string, linkTo?: string }) => (
   <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-300 flex flex-col">
     <h2 className="text-xl font-semibold text-primary mb-3">{title}</h2>
     <p className="text-subtle-text mb-4 flex-grow">
       {description}
     </p>
-    <div className="text-subtle-text/80 italic mt-auto">Coming soon</div>
+    {/* Conditionally render link or placeholder */}
+    {linkTo ? (
+       <Link 
+        to={linkTo} 
+        className="text-primary hover:underline mt-auto text-sm font-medium"
+      >
+        Learn More &rarr;
+      </Link>
+    ) : (
+      <div className="text-subtle-text/80 italic mt-auto text-sm">Coming soon</div>
+    )}
   </div>
 );
 
@@ -23,10 +35,11 @@ const ResourcesPage = () => {
       
       {/* Resource Cards */}
       <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-        {/* Use the defined ResourceCard component */}
+        {/* Update Books card to use linkTo prop */}
         <ResourceCard 
           title="Books & Publications"
           description="Recommended reading materials, research papers, and publications focused on DS-ASD and PDA."
+          linkTo="/books"
         />
         <ResourceCard 
           title="Organizations & Support Groups"

@@ -101,6 +101,12 @@ const Navbar = () => {
                 Resources
               </NavLink>
               <NavLink 
+                to="/books" 
+                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+              >
+                Books
+              </NavLink>
+              <NavLink 
                 to="/adapted-edaq8" 
                 className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
               >
@@ -213,6 +219,13 @@ const Navbar = () => {
             onClick={closeMenu}
           >
             Resources
+          </NavLink>
+          <NavLink 
+            to="/books" 
+            className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+            onClick={closeMenu}
+          >
+            Books
           </NavLink>
           <NavLink 
             to="/adapted-edaq8" 
