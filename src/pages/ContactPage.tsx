@@ -19,8 +19,8 @@ const ContactPage = () => {
               <EnvelopeIcon className="h-5 w-5 mr-2 text-primary" /> 
               Email:
             </p>
-            <a href="mailto:johnny.hawk@gmail.com" className="text-primary hover:underline break-all">
-              johnny.hawk@gmail.com
+            <a href="mailto:info@dsasd.net" className="text-primary hover:underline break-all">
+              info@dsasd.net
             </a>
           </div>
           

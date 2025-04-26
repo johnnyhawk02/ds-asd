@@ -59,5 +59,10 @@ export const intersectionResources: Resource[] = [
       "An in-depth seminar exploring the co-occurrence of Down syndrome and ASD, including identification and tailored support strategies.",
     link: "https://www.youtube.com/watch?v=fGDFNitjeAk",
   },
-  
+  {
+    title: "DSRF Canada: Supporting Individuals with Down Syndrome and Autism",
+    description:
+      "Educational video from the Down Syndrome Resource Foundation Canada providing strategies and resources for supporting people with dual diagnosis.",
+    link: "https://www.youtube.com/watch?v=4Ug95jYt1b4&ab_channel=DSRFCANADA",
+  },
 ]; 

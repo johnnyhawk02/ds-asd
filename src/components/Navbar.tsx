@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logoUrl from '../assets/logo002.png'; // Changed to use logo002.png
+import SearchBar from './SearchBar';
+import NavDropdown from './NavDropdown';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
   
   // Close menu when clicking outside
   useEffect(() => {
@@ -37,9 +40,27 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const handleSearch = (query: string) => {
+    // For now, just navigate to a search results page with the query as a parameter
+    // In the future, this could connect to a real search implementation
+    navigate(`/search?q=${encodeURIComponent(query)}`);
+  };
+
   const linkClasses = "px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200";
   const activeLinkClasses = "text-primary bg-primary/10";
   const inactiveLinkClasses = "text-subtle-text hover:text-primary hover:bg-primary/5";
+
+  // Define menu structure
+  const knowledgeDropdown = [
+    { label: 'Understanding PDA', path: '/understanding-pda' },
+    { label: 'Proposed EDA-Q8', path: '/adapted-edaq8' }
+  ];
+  
+  const resourcesDropdown = [
+    { label: 'All Resources', path: '/resources' },
+    { label: 'Books', path: '/books' },
+    { label: 'Videos', path: '/videos' }
+  ];
 
   return (
     <nav className="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
@@ -73,7 +94,7 @@ const Navbar = () => {
           </div>
           
           {/* Desktop Menu - Add ml-auto */}
-          <div className="hidden xl:block ml-auto">
+          <div className="hidden xl:flex xl:items-center xl:justify-between ml-auto">
             <div className="flex items-center space-x-4">
                {/* NavLinks using xl breakpoint */}
                <NavLink 
@@ -88,42 +109,35 @@ const Navbar = () => {
               >
                 About
               </NavLink>
-              <NavLink 
-                to="/understanding-pda" 
-                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
-              >
-                Understanding PDA
-              </NavLink>
-              <NavLink 
-                to="/resources" 
-                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
-              >
-                Resources
-              </NavLink>
-              <NavLink 
-                to="/books" 
-                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
-              >
-                Books
-              </NavLink>
-              <NavLink 
-                to="/videos" 
-                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
-              >
-                Videos
-              </NavLink>
-              <NavLink 
-                to="/adapted-edaq8" 
-                className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
-              >
-                Proposed EDA-Q8
-              </NavLink>
+              
+              {/* Dropdowns */}
+              <NavDropdown 
+                label="Knowledge Base" 
+                items={knowledgeDropdown}
+                baseClasses={linkClasses}
+                activeClasses={activeLinkClasses}
+                inactiveClasses={inactiveLinkClasses}
+              />
+              
+              <NavDropdown 
+                label="Resources" 
+                items={resourcesDropdown}
+                baseClasses={linkClasses}
+                activeClasses={activeLinkClasses}
+                inactiveClasses={inactiveLinkClasses}
+              />
+              
               <NavLink 
                 to="/contact" 
                 className={({ isActive }) => `${linkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
               >
                 Contact
               </NavLink>
+            </div>
+            
+            {/* Search Bar - Desktop */}
+            <div className="ml-4 w-64">
+              <SearchBar onSearch={handleSearch} placeholder="Search site..." />
             </div>
           </div>
           
@@ -177,7 +191,7 @@ const Navbar = () => {
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-         {/* ... mobile menu content (close button, links) remains the same ... */}
+         {/* Close button */}
          <div className="flex justify-start p-4">
             <button
               onClick={closeMenu}
@@ -196,6 +210,12 @@ const Navbar = () => {
               </svg>
             </button>
         </div>
+        
+        {/* Mobile Search Bar */}
+        <div className="px-4 pt-2 pb-4">
+          <SearchBar onSearch={handleSearch} placeholder="Search site..." />
+        </div>
+        
         <div className="px-4 pt-4 pb-3 space-y-1">
            {/* Mobile Links using NavLink */}
            <NavLink 
@@ -212,6 +232,10 @@ const Navbar = () => {
           >
             About
           </NavLink>
+          
+          {/* Divider with label for Knowledge Base */}
+          <div className="px-3 py-2 text-xs font-semibold text-gray-500">Knowledge Base</div>
+          
           <NavLink 
             to="/understanding-pda" 
             className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
@@ -220,11 +244,22 @@ const Navbar = () => {
             Understanding PDA
           </NavLink>
           <NavLink 
+            to="/adapted-edaq8" 
+            className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
+            onClick={closeMenu}
+          >
+            Proposed EDA-Q8
+          </NavLink>
+          
+          {/* Divider with label for Resources */}
+          <div className="px-3 py-2 text-xs font-semibold text-gray-500">Resources</div>
+          
+          <NavLink 
             to="/resources" 
             className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
             onClick={closeMenu}
           >
-            Resources
+            All Resources
           </NavLink>
           <NavLink 
             to="/books" 
@@ -240,13 +275,7 @@ const Navbar = () => {
           >
             Videos
           </NavLink>
-          <NavLink 
-            to="/adapted-edaq8" 
-            className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
-            onClick={closeMenu}
-          >
-            Proposed EDA-Q8
-          </NavLink>
+          
           <NavLink 
             to="/contact" 
             className={({ isActive }) => `block px-3 py-2 rounded-md text-base font-medium ${isActive ? activeLinkClasses : inactiveLinkClasses}`}

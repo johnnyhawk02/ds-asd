@@ -1,0 +1,43 @@
+{
+  "formatOnSave": true,
+  "formatOnPaste": true,
+  "editor": {
+    "tabSize": 2,
+    "wordWrap": "on",
+    "rulers": [100],
+    "minimap": {
+      "enabled": true
+    },
+    "cursorBlinking": "smooth",
+    "bracketPairColorization.enabled": true
+  },
+  "files": {
+    "insertFinalNewline": true,
+    "trimTrailingWhitespace": true
+  },
+  "vite": {
+    "autoRefresh": true
+  },
+  "typescript": {
+    "suggest.completeFunctionCalls": true,
+    "implementationsCodeLens.enabled": true,
+    "referencesCodeLens.enabled": true
+  },
+  "tailwindCSS": {
+    "emmetCompletions": true,
+    "lint": {
+      "cssConflict": "warning",
+      "invalidApply": "error",
+      "invalidScreen": "error",
+      "invalidVariant": "error"
+    }
+  },
+  "ai": {
+    "chat": {
+      "enabled": true
+    },
+    "inline": {
+      "enabled": true
+    }
+  }
+} 

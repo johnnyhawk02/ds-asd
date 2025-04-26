@@ -16,7 +16,7 @@ const VideosPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-3xl md:text-4xl font-bold text-text mb-4">Educational Videos</h1>
+      <h1 className="text-4xl md:text-5xl font-bold text-text mb-4">Educational Videos</h1>
       <p className="text-subtle-text mb-12 text-lg max-w-3xl">
         A curated collection of informative videos on Down Syndrome, Autism Spectrum Disorder, and Pathological Demand Avoidance. These resources provide valuable insights and practical guidance.
       </p>

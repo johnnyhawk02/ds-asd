@@ -8,6 +8,7 @@ import {
   ArrowRightIcon, 
   BookOpenIcon, 
   ChatBubbleLeftRightIcon, 
+  HeartIcon,
   InformationCircleIcon, 
   PuzzlePieceIcon,
   UsersIcon,
@@ -18,9 +19,9 @@ const HomePage = () => {
   return (
     <div className="space-y-16 md:space-y-24">
       {/* Hero Section */}
-      <div className="text-center pt-8 md:pt-16">
-        <span
-          className="block h-16 w-16 bg-primary mx-auto mb-6"
+      <div className="text-center pt-8 md:pt-16 px-4">
+        <div 
+          className="h-20 w-20 bg-primary mx-auto mb-8 transform hover:scale-105 transition-transform duration-300"
           style={{
             maskImage: `url(${logoUrl})`,
             WebkitMaskImage: `url(${logoUrl})`,
@@ -31,56 +32,62 @@ const HomePage = () => {
             maskPosition: 'center',
             WebkitMaskPosition: 'center'
           }}
-        ></span>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text mb-6 leading-tight">
-          Supporting the <span className="text-primary">Down Syndrome</span> & <span className="text-primary">Autism</span> Journey
+        ></div>
+        <h1 className="text-4xl md:text-5xl font-bold text-text mb-8 leading-tight">
+          Empowering the <span className="text-primary">Down Syndrome</span> & <span className="text-primary">Autism</span> Community
         </h1>
-        <p className="text-lg md:text-xl text-subtle-text max-w-3xl mx-auto mb-4 leading-relaxed">
-          A comprehensive resource for families and caregivers navigating the unique path of individuals with Down syndrome, Autism Spectrum Disorder, and Pathological Demand Avoidance.
+        <p className="text-lg md:text-xl text-subtle-text max-w-3xl mx-auto mb-6 leading-relaxed">
+          A welcoming resource hub for families and caregivers navigating the beautiful, complex journey of individuals with Down syndrome, Autism Spectrum Disorder, and Pathological Demand Avoidance.
         </p>
-        <p className="text-xl md:text-2xl text-primary font-semibold max-w-3xl mx-auto mb-10 leading-relaxed">
-          Support you don't have to fight for
+        <p className="text-xl md:text-2xl text-primary font-semibold max-w-3xl mx-auto mb-12 leading-relaxed">
+          Where understanding meets empowerment
         </p>
-        <div className="flex flex-wrap justify-center gap-4 md:gap-5">
+        <div className="flex flex-wrap justify-center gap-5 md:gap-6">
           <Link 
             to="/about" 
-            className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
+            className="inline-flex items-center px-8 py-4 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
           >
-            Learn More
+            Discover Our Mission
             <ArrowRightIcon className="ml-2 h-5 w-5" />
           </Link>
           <Link 
             to="/resources" 
-            className="inline-flex items-center px-6 py-3 bg-white text-primary font-medium rounded-lg border border-primary hover:bg-primary/5 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
+            className="inline-flex items-center px-8 py-4 bg-white text-primary font-medium rounded-lg border border-primary hover:bg-primary/5 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
           >
             <BookOpenIcon className="mr-2 h-5 w-5" />
-            View Resources
+            Explore Resources
           </Link>
         </div>
       </div>
       
       {/* Feature Cards Section */}
-      <div className="mb-20">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-text">
-          Our Focus Areas
+      <div className="mb-20 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 text-text">
+          How We Support You
         </h2>
+        <p className="text-subtle-text text-center max-w-2xl mx-auto mb-12">
+          Tailored resources and community support for every step of your journey
+        </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Card 1: Linked to /about */}
           <Link to="/about" className="block group">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 group-hover:shadow-lg transition duration-300 transform group-hover:-translate-y-1 flex flex-col h-full">
-              <img 
-                src={ds002Image} 
-                alt="Understanding the DS-ASD Journey" 
-                className="w-full h-48 object-cover object-top"
-              />
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 group-hover:shadow-lg transition duration-300 transform group-hover:-translate-y-2 flex flex-col h-full">
+              <div className="relative overflow-hidden">
+                <img 
+                  src={ds002Image} 
+                  alt="Understanding the DS-ASD Journey" 
+                  className="w-full h-52 object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
               <div className="p-6 flex-grow flex flex-col justify-between">
                 <h3 className="text-xl font-semibold text-text mb-3 text-center flex items-center justify-center">
                    <InformationCircleIcon className="h-5 w-5 mr-2 text-primary"/> 
-                   Understanding DS-ASD
+                   DS-ASD Insights
                 </h3>
                 <p className="text-subtle-text leading-relaxed text-center">
-                  Exploring the unique intersection.
+                  Understanding the unique intersection and strengths of dual diagnoses.
                 </p>
               </div>
             </div>
@@ -88,19 +95,22 @@ const HomePage = () => {
           
           {/* Card 2: Linked to /understanding-pda */}
           <Link to="/understanding-pda" className="block group">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 group-hover:shadow-lg transition duration-300 transform group-hover:-translate-y-1 flex flex-col h-full">
-              <img 
-                src={ds003Image} 
-                alt="Understanding PDA Strategies" 
-                className="w-full h-48 object-cover object-top"
-              />
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 group-hover:shadow-lg transition duration-300 transform group-hover:-translate-y-2 flex flex-col h-full">
+              <div className="relative overflow-hidden">
+                <img 
+                  src={ds003Image} 
+                  alt="Understanding PDA Strategies" 
+                  className="w-full h-52 object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
               <div className="p-6 flex-grow flex flex-col justify-between">
                 <h3 className="text-xl font-semibold text-text mb-3 text-center flex items-center justify-center">
                    <PuzzlePieceIcon className="h-5 w-5 mr-2 text-primary"/> 
-                   Understanding PDA
+                   PDA Approaches
                 </h3>
                 <p className="text-subtle-text leading-relaxed text-center">
-                  Strategies and insights.
+                  Practical strategies and compassionate insights for demand avoidance.
                 </p>
               </div>
             </div>
@@ -108,19 +118,22 @@ const HomePage = () => {
           
           {/* Card 3: Linked to /adapted-edaq8 */}
           <Link to="/adapted-edaq8" className="block group">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 group-hover:shadow-lg transition duration-300 transform group-hover:-translate-y-1 flex flex-col h-full">
-              <img 
-                src={ds004Image} 
-                alt="Adapted Resources and Tools" 
-                className="w-full h-48 object-cover object-top"
-              />
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 group-hover:shadow-lg transition duration-300 transform group-hover:-translate-y-2 flex flex-col h-full">
+              <div className="relative overflow-hidden">
+                <img 
+                  src={ds004Image} 
+                  alt="Adapted Resources and Tools" 
+                  className="w-full h-52 object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
               <div className="p-6 flex-grow flex flex-col justify-between">
                 <h3 className="text-xl font-semibold text-text mb-3 text-center flex items-center justify-center">
                    <WrenchScrewdriverIcon className="h-5 w-5 mr-2 text-primary"/> 
-                   Adapted Resources
+                   Specialized Tools
                 </h3>
                 <p className="text-subtle-text leading-relaxed text-center">
-                  Tools tailored for unique needs.
+                  Innovative resources tailored for unique developmental needs.
                 </p>
               </div>
             </div>
@@ -128,19 +141,22 @@ const HomePage = () => {
 
           {/* Card 4: Linked to /resources */}
           <Link to="/resources" className="block group">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 group-hover:shadow-lg transition duration-300 transform group-hover:-translate-y-1 flex flex-col h-full">
-              <img 
-                src={ds001Image} 
-                alt="Supporting Down Syndrome and Autism Journey" 
-                className="w-full h-48 object-cover object-top"
-              />
+            <div className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 group-hover:shadow-lg transition duration-300 transform group-hover:-translate-y-2 flex flex-col h-full">
+              <div className="relative overflow-hidden">
+                <img 
+                  src={ds001Image} 
+                  alt="Supporting Down Syndrome and Autism Journey" 
+                  className="w-full h-52 object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              </div>
               <div className="p-6 flex-grow flex flex-col justify-between">
                 <h3 className="text-xl font-semibold text-text mb-3 text-center flex items-center justify-center">
                    <UsersIcon className="h-5 w-5 mr-2 text-primary"/> 
-                   Community & Support
+                   Community Support
                 </h3>
                 <p className="text-subtle-text leading-relaxed text-center">
-                  Visualizing the journey together.
+                  Connect with families who understand your experience and journey.
                 </p>
               </div>
             </div>
@@ -149,18 +165,19 @@ const HomePage = () => {
       </div>
       
       {/* Call to Action Section */}
-      <div className="bg-primary text-white rounded-2xl py-12 px-6 md:px-8 mb-20 shadow-lg">
+      <div className="bg-gradient-to-r from-primary to-primary/80 text-white rounded-2xl py-14 px-6 md:px-10 mb-20 shadow-xl">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Join Our Supportive Community</h2>
-          <p className="text-lg mb-8 opacity-90">
-            Connect with other families, share experiences, and access specialized resources to support your loved ones.
+          <HeartIcon className="h-12 w-12 mx-auto mb-6 text-white/90" />
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Be Part of Our Supportive Community</h2>
+          <p className="text-lg mb-10 opacity-90 max-w-xl mx-auto">
+            Connect with other families, share your journey, and access specialized resources designed to support and empower your loved ones.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center px-6 py-3 bg-white text-primary font-medium rounded-lg hover:bg-gray-50 transition duration-300 shadow hover:shadow-md transform hover:-translate-y-0.5"
+            className="inline-flex items-center px-8 py-4 bg-white text-primary font-medium rounded-lg hover:bg-gray-50 transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
           >
             <ChatBubbleLeftRightIcon className="mr-2 h-5 w-5" />
-            Get in Touch
+            Reach Out Today
           </Link>
         </div>
       </div>

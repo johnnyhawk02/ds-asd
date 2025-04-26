@@ -8,6 +8,7 @@ import ContactPage from './pages/ContactPage'
 import AdaptedEDAQ8Page from './pages/AdaptedEDAQ8Page'
 import BooksPage from './pages/BooksPage'
 import VideosPage from './pages/VideosPage'
+import SearchResultsPage from './pages/SearchResultsPage'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="videos" element={<VideosPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="adapted-edaq8" element={<AdaptedEDAQ8Page />} />
+          <Route path="search" element={<SearchResultsPage />} />
         </Route>
       </Routes>
     </Router>

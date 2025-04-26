@@ -5,8 +5,25 @@ import {
   UsersIcon,
   ArrowRightIcon
 } from '@heroicons/react/24/outline';
+import { useSearchIndexing } from '../hooks/useSearchIndexing';
 
 const AboutPage = () => {
+  // Add this page to the search index
+  useSearchIndexing({
+    path: '/about',
+    title: 'About DS-ASD',
+    type: 'page',
+    content: [
+      'Down syndrome is a genetic condition caused by the presence of an extra copy of chromosome 21.',
+      'People with Down syndrome often have strong visual learning skills, good social skills, and can lead fulfilling lives.',
+      'Autism Spectrum Disorder (ASD) is characterized by challenges with social skills, repetitive behaviors, speech, and nonverbal communication.',
+      'Many people with autism have exceptional abilities in visual skills, music, math, and art.',
+      'Research suggests that approximately 10-20% of individuals with Down syndrome also have Autism Spectrum Disorder.',
+      'Children and adults with both conditions may require specialized approaches that address their specific needs.',
+      'Families supporting individuals with DS-ASD benefit from multidisciplinary approaches combining expertise in both conditions.'
+    ]
+  });
+
   return (
     <>
       <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">About DS-ASD</h1>
