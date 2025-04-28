@@ -5,8 +5,26 @@ import {
   CheckBadgeIcon,
   DocumentTextIcon
 } from '@heroicons/react/24/outline';
+import { useSearchIndexing } from '../hooks/useSearchIndexing';
 
 const UnderstandingPDAPage = () => {
+  // Add this page to the search index
+  useSearchIndexing({
+    path: '/understanding-pda',
+    title: 'Understanding PDA',
+    type: 'page',
+    content: [
+      'Pathological Demand Avoidance (PDA) is considered by many to be a profile within the autism spectrum.',
+      'It is characterized by an extreme avoidance of everyday demands and expectations, driven by high levels of anxiety.',
+      'The demand avoidance in PDA is not defiance. It stems from an anxiety-based need to control the environment.',
+      'Demands can include direct requests, implied expectations, time pressures, transitions, and internal demands.',
+      'Traditional parenting or teaching methods relying on clear boundaries, rewards, and consequences often fail for individuals with PDA.',
+      'People with PDA typically respond better to flexible, collaborative approaches focused on reducing demands.',
+      'Effective support involves understanding PDA as an anxiety-driven condition and adapting strategies accordingly.',
+      'Support strategies include indirect language, offering choices, reducing demands, using humor, and prioritizing anxiety management.'
+    ]
+  });
+
   return (
     <>
       <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">Understanding PDA</h1>

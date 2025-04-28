@@ -1,6 +1,21 @@
 import { EnvelopeIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline';
+import { useSearchIndexing } from '../hooks/useSearchIndexing';
 
 const ContactPage = () => {
+  // Add this page to the search index
+  useSearchIndexing({
+    path: '/contact',
+    title: 'Contact Us',
+    type: 'page',
+    content: [
+      'Get in touch with us for questions, suggestions, or to share your experiences.',
+      'Email: info@dsasd.net',
+      'Follow us on social media (links coming soon!).',
+      'Contact form coming soon.',
+      'Whether you have questions, suggestions, or want to share your experiences, please feel free to reach out.'
+    ]
+  });
+
   return (
     <>
       <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">Contact Us</h1>

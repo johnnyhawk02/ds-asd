@@ -8,8 +8,27 @@ import {
   ClipboardDocumentListIcon,
   SparklesIcon
 } from '@heroicons/react/24/outline';
+import { useSearchIndexing } from '../hooks/useSearchIndexing';
 
 const AdaptedEDAQ8Page: React.FC = () => {
+  // Add this page to the search index
+  useSearchIndexing({
+    path: '/adapted-edaq8',
+    title: 'Adapted EDA-Q8 Assessment',
+    type: 'resource',
+    content: [
+      'Proposed adaptation of the EDA-Q8 assessment tool for non-verbal children with Down Syndrome.',
+      'The Extreme Demand Avoidance Questionnaire (EDA-Q8) is useful for identifying demand avoidance behaviors.',
+      'The standard version relies on verbal expressions unsuitable for many non-verbal children with Down Syndrome.',
+      'This adaptation modifies item descriptions to focus on observable, non-verbal behaviors relevant for children with Down Syndrome.',
+      'Original EDA-Q8 items compared with proposed adapted versions for non-verbal focus.',
+      'Items focus on resistance to demands, need for control, mood changes, and emotional responses.',
+      'This proposal requires proper review, validation, and approval by qualified professionals before implementation.',
+      'The adaptation focuses on non-verbal communication styles and observable behaviors.',
+      'It provides concrete examples relevant to Down Syndrome context.'
+    ]
+  });
+
   return (
     <>
       <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">

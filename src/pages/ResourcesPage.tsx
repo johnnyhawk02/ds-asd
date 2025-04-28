@@ -9,6 +9,7 @@ import {
   DocumentTextIcon,
   ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/outline';
+import { useSearchIndexing } from '../hooks/useSearchIndexing';
 
 // Define the ResourceCard component
 const ResourceCard = ({ title, description, linkTo, Icon }: { 
@@ -40,6 +41,22 @@ const ResourceCard = ({ title, description, linkTo, Icon }: {
 );
 
 const ResourcesPage = () => {
+  // Add this page to the search index
+  useSearchIndexing({
+    path: '/resources',
+    title: 'Resources',
+    type: 'resource',
+    content: [
+      'A curated collection of resources for families supporting individuals with DS-ASD and PDA.',
+      'Books & Publications: Recommended reading materials, research papers, and publications focused on DS-ASD and PDA.',
+      'Organizations & Support Groups: Connect with organizations, foundations, and support groups specialized in DS-ASD and PDA support.',
+      'Educational Resources: Materials for educators, homeschooling parents, and anyone supporting the educational needs of individuals with DS-ASD and PDA.',
+      'Therapeutic Approaches: Information about therapeutic interventions, strategies, and approaches that may benefit individuals with DS-ASD and PDA.',
+      'Visual Supports & Tools: Downloadable visual schedules, social stories, communication tools, and other practical resources.',
+      'Research & Articles: Latest research findings, articles, and academic resources related to DS-ASD and PDA.'
+    ]
+  });
+
   return (
     <>
       <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">Resources</h1>

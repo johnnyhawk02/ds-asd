@@ -9,23 +9,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Use CSS variable for primary, allowing opacity modifiers
         'primary': 'hsl(var(--color-primary) / <alpha-value>)',
-        'text': '#333333',         // Dark Gray
-        'subtle-text': '#777777',  // Medium Gray
-        'background': '#F8F9FA',  // Off-white
+        'text': '#2D3748',         // Slightly softer black
+        'subtle-text': '#718096',  // Lighter gray for secondary text
+        'background': '#F7FAFC',   // Lighter background
         'white': '#FFFFFF',
-        'logo-orange': '#ff4d00', // Add the new logo color
       },
       fontFamily: {
-        // Add Source Code Pro, keeping existing mono fonts as fallbacks
         logo: ['"Source Code Pro"', ...defaultTheme.fontFamily.mono],
-        // Keep default sans or define your primary body font
-        sans: [...defaultTheme.fontFamily.sans],
+        sans: ['"Inter"', ...defaultTheme.fontFamily.sans],
+      },
+      spacing: {
+        '72': '18rem',
+        '84': '21rem',
+        '96': '24rem',
+      },
+      borderRadius: {
+        'xl': '1rem',
+        '2xl': '1.5rem',
       },
     },
   },
   plugins: [
-    require('@tailwindcss/typography'), // Add typography plugin for better prose styling
+    require('@tailwindcss/typography'),
   ],
 } 

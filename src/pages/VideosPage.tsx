@@ -1,7 +1,22 @@
 import { intersectionResources } from '../data/resources';
 import { PlayIcon } from '@heroicons/react/24/outline';
+import { useSearchIndexing } from '../hooks/useSearchIndexing';
 
 const VideosPage = () => {
+  // Add this page to the search index
+  useSearchIndexing({
+    path: '/videos',
+    title: 'Educational Videos',
+    type: 'resource',
+    content: [
+      'A curated collection of informative videos on Down Syndrome, Autism Spectrum Disorder, and Pathological Demand Avoidance.',
+      'Educational resources providing valuable insights and practical guidance for parents, caregivers, and professionals.',
+      'Video content from experts in the fields of DS, ASD, and PDA research and support.',
+      'Visual learning resources to better understand behaviors, strategies, and interventions.',
+      'Content includes demonstrations of therapeutic approaches, educational methods, and practical strategies.'
+    ]
+  });
+
   const getVideoId = (url: string): string | null => {
     // Extract video ID from YouTube links
     const ytRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i;
