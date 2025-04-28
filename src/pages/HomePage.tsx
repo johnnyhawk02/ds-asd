@@ -23,9 +23,8 @@ const HomePage = () => {
     title: 'DS-ASD Home',
     type: 'page',
     content: [
-      'DS-ASD: Where Unique Conditions Connect',
+      'DS-ASD: Where Differences Unite, and Understanding Empowers',
       'A resource hub for families and caregivers',
-      'Where understanding meets empowerment',
       'DS-ASD Insights',
       'PDA Approaches',
       'Specialized Tools',
@@ -37,25 +36,25 @@ const HomePage = () => {
     <div className="space-y-12 md:space-y-20">
       {/* Hero Section */}
       <div className="text-center pt-8 md:pt-16 px-4">
-        <div 
-          className="h-20 w-20 bg-primary mx-auto mb-8 transform hover:scale-105 transition-transform duration-300"
-          style={{
-            maskImage: `url(${logoUrl})`,
-            WebkitMaskImage: `url(${logoUrl})`,
-            maskSize: 'contain',
-            WebkitMaskSize: 'contain',
-            maskRepeat: 'no-repeat',
-            WebkitMaskRepeat: 'no-repeat',
-            maskPosition: 'center',
-            WebkitMaskPosition: 'center'
-          }}
-        ></div>
+        <div className="flex justify-center space-x-4 mb-8">
+         
+          <div 
+            className="h-20 w-20 bg-primary transform hover:scale-105 transition-transform duration-300 animate-spin-slow"
+            style={{
+              maskImage: `url(${logoUrl})`,
+              WebkitMaskImage: `url(${logoUrl})`,
+              maskSize: 'contain',
+              WebkitMaskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              WebkitMaskRepeat: 'no-repeat',
+              maskPosition: 'center',
+              WebkitMaskPosition: 'center'
+            }}
+          ></div>
+        </div>
         <h1 className="text-4xl md:text-5xl font-bold text-text mb-6 leading-tight">
-          <span className="text-primary">DS-ASD:</span> Where Unique Conditions Connect
+          <span className="text-primary">DS-ASD:</span> Where Differences Unite, and Understanding Empowers
         </h1>
-        <p className="text-xl text-primary font-semibold max-w-2xl mx-auto mb-10">
-          Where understanding meets empowerment
-        </p>
         <div className="flex flex-wrap justify-center gap-5 md:gap-6">
           <Link 
             to="/about" 
