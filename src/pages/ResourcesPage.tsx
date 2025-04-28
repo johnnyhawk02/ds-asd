@@ -59,14 +59,18 @@ const ResourcesPage = () => {
 
   return (
     <>
-      <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">Resources</h1>
       
-      {/* Intro Box */}
-      <div className="bg-white rounded-lg shadow p-6 md:p-8 mb-12 border border-gray-200">
-        <p className="text-lg text-subtle-text text-center">
+      
+      <h1 className="text-4xl md:text-5xl font-bold text-text mb-6 leading-tight">
+        <span className="text-primary">Resources:</span> Materials and Resources
+      </h1>
+      
+       
+        <p className="text-lg text-subtle-text text-text">
            This page features a curated collection of resources for families supporting individuals with DS-ASD and PDA. We're actively compiling high-quality, evidence-based resources for you.
+           
         </p>
-      </div>
+       
       
       {/* Resource Cards */}
       <div className="grid md:grid-cols-2 gap-6 md:gap-8">

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 interface NavDropdownItem {
@@ -24,10 +24,11 @@ const NavDropdown = ({
 }: NavDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
   
   // Check if any child route is active
   const isChildActive = () => {
-    return items.some(item => window.location.pathname === item.path);
+    return items.some(item => location.pathname === item.path);
   };
   
   // Close dropdown when clicking outside
@@ -43,6 +44,11 @@ const NavDropdown = ({
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
+
+  // Close dropdown when navigating to a new page
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
   
   // Toggle dropdown
   const toggleDropdown = () => {
@@ -52,36 +58,50 @@ const NavDropdown = ({
   return (
     <div className="relative" ref={dropdownRef}>
       <button
-        className={`${baseClasses} ${isChildActive() ? activeClasses : inactiveClasses} flex items-center`}
+        className={`${baseClasses} ${isChildActive() ? activeClasses : inactiveClasses} flex items-center group`}
         onClick={toggleDropdown}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
       >
-        {label}
+        <span>{label}</span>
         <ChevronDownIcon
-          className={`ml-1 h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`ml-1 h-4 w-4 transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-180' : ''} ${isChildActive() ? 'text-primary' : 'text-subtle-text group-hover:text-primary'}`}
         />
       </button>
       
-      {/* Dropdown menu */}
+      {/* Dropdown menu with improved animation */}
       <div 
         className={`
-          absolute left-0 mt-1 w-48 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 z-50 transform transition-all
+          absolute left-0 mt-1 w-56 origin-top-left rounded-lg bg-white shadow-lg ring-1 ring-black/5 z-50 
+          transform transition-all duration-200 ease-out
           ${isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'}
         `}
       >
-        <div className="py-1">
+        <div className="py-1 rounded-lg overflow-hidden">
           {items.map((item, index) => (
             <NavLink
               key={index}
               to={item.path}
               className={({ isActive }) => 
-                `block px-4 py-2 text-sm ${isActive ? 'bg-primary/10 text-primary' : 'text-subtle-text hover:bg-gray-100'}`
+                `block px-4 py-2 text-sm transition-colors duration-150 
+                 ${isActive 
+                  ? 'bg-primary/10 text-primary font-medium' 
+                  : 'text-subtle-text hover:bg-gray-50 hover:text-primary'}`
               }
               onClick={() => setIsOpen(false)}
             >
-              {item.label}
+              <div className="flex items-center">
+                <span className="flex-1">{item.label}</span>
+                {location.pathname === item.path && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary ml-2"></span>
+                )}
+              </div>
             </NavLink>
           ))}
         </div>
+
+        {/* Decorative arrow */}
+        <div className="absolute top-0 left-4 -mt-2 h-2 w-2 rotate-45 bg-white border-t border-l border-black/5"></div>
       </div>
     </div>
   );

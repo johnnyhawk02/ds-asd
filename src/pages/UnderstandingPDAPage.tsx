@@ -27,7 +27,9 @@ const UnderstandingPDAPage = () => {
 
   return (
     <>
-      <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">Understanding PDA</h1>
+      <h1 className="text-4xl md:text-5xl font-bold text-text mb-6 leading-tight">
+        <span className="text-primary">PDA:</span> Understanding Pathological Demand Avoidance
+      </h1>
       
       <div className="bg-white rounded-lg shadow p-6 md:p-8 mb-12 border border-gray-200">
         <p className="text-lg text-subtle-text text-center">

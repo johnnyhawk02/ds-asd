@@ -31,8 +31,8 @@ const AdaptedEDAQ8Page: React.FC = () => {
 
   return (
     <>
-      <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">
-        Proposed EDA-Q8 Adaptation (Non-Verbal Children with Down Syndrome)
+      <h1 className="text-4xl md:text-5xl font-bold text-text mb-6 leading-tight">
+        <span className="text-primary">Assessment:</span> Adapted EDA-Q8 Proposal
       </h1>
       
       {/* Disclaimer Box */}

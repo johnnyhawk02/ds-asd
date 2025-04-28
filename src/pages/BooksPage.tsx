@@ -27,8 +27,8 @@ const BooksPage: React.FC = () => {
 
   return (
     <>
-      <h1 className="text-4xl md:text-5xl font-bold text-text mb-10 text-center">
-        Books & Publications
+      <h1 className="text-4xl md:text-5xl font-bold text-text mb-6 leading-tight">
+        <span className="text-primary">Books:</span> Recommended Reading
       </h1>
 
       <div className="bg-white rounded-lg shadow p-6 md:p-8 mb-12 border border-gray-200">
